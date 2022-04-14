@@ -1,0 +1,42 @@
+Xft.dpi:       90 
+Xft.antialias: true
+Xft.hinting:   true
+Xft.rgba:      rgb
+Xft.autohint:  false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+XTerm*background:        #2b2b2b
+XTerm*foreground:        #000000
+XTerm*pointerColor:      #111111
+XTerm*faceName:          Fixed
+XTerm*faceSize:          11
+XTerm*reverseVideo:      on
+XTerm*selectToClipboard: true
+
+URxvt.font: xft:Source Code Pro:size=10
+URxvt.scrollBar: false
+
+URxvt*background: [80]#282c34
+URxvt*foreground: #abb2bf
+URxvt*cursorColour: #abb2bf
+
+URxvt*color0: #282c34
+URxvt*color1: #e06c75
+URxvt*color2: #98c379
+URxvt*color3: #e5c07b
+URxvt*color4: #abb2bf
+URxvt*color5: #61afef
+URxvt*color6: #56b6c2
+URxvt*color7: #abb2bf
+URxvt*color8: #545862
+URxvt*color9: #e06c75
+URxvt*color10: #98c379
+URxvt*color11: #e5c07b
+URxvt*color12: #61afef
+URxvt*color13: #c678dd
+URxvt*color14: #56b6c2
+URxvt*color15: #c8ccd4
+
+
+

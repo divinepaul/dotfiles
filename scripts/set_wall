@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]
+  then
+    echo "Please specify a image"
+    exit
+fi
+
+cp -r $1 ~/.config/back.jpg
+feh --bg-scale ~/.config/back.jpg

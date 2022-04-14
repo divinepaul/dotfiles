@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cd ~/projects/ && ls | fzf | xargs -t nvim

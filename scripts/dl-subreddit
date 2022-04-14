@@ -1,0 +1,27 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]
+  then
+    echo "Please specify a subreddit"
+    exit
+fi
+
+json=$(curl -L -s --user-agent "me script 0.2" "http://reddit.com/r/$1.json")
+is_selfs=($(jq ".data.children[].data.is_self" <<< $json))
+is_videos=($(jq ".data.children[].data.is_video" <<< $json))
+urls=($(jq -r ".data.children[].data.url" <<< $json))
+
+for i in "${!is_selfs[@]}"; do
+    echo POST NO: $i
+    if [ ${is_selfs[$i]} = false ];
+    then
+        if [ ${is_videos[$i]} = false ];
+        then
+            filename=$(basename ${urls[$i]})
+            extention="${filename##*.}"
+            curl ${urls[$i]} -o $i.$extention
+        else
+            yt-dlp -o $i ${urls[$i]}
+        fi
+    fi
+done
