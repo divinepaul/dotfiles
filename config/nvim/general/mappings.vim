@@ -1,7 +1,8 @@
 let mapleader = " "
 nnoremap <C-n> :NERDTree<CR>
 noremap <leader>ft :NERDTreeToggle<CR>
-noremap <leader>ff :NERDTreeFind<CR>
+
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 noremap <leader>p :GFiles<CR>
 noremap <leader>nf :Files<CR>
@@ -34,3 +35,14 @@ nnoremap gd :lua vim.lsp.buf.definition()<CR>
 noremap  gD :lua vim.lsp.buf.declaration()<CR>
 noremap  gH :lua vim.lsp.buf.hover()<CR>
 noremap  gi :lua vim.lsp.buf.implementation()<CR>
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" Using Lua functions
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>

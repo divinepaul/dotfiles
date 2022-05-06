@@ -12,8 +12,13 @@ Plug 'wojciechkepka/vim-github-dark'
 
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf.vim'
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'preservim/nerdcommenter'
@@ -26,6 +31,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
 Plug 'rust-lang/rust.vim'
+Plug 'digitaltoad/vim-pug'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
 
