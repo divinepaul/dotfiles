@@ -3,6 +3,11 @@
 export EDITOR='nvim'
 export VISUAL='nvim'
 export BROWSER='brave'
+export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee'
+export JAVA_HOME='/usr/lib/jvm/java-8-openjdk'
+export ANDROID_SDK_ROOT='/opt/android-sdk'
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 autoload -U colors && colors
 alias ls='ls --color=auto'
 PS1="%B%F{blue}[%f%b%B%F{red}%1d%f%b%F{blue}]%f%F{blue}$%f "
@@ -84,3 +89,5 @@ alias youtube-dl=yt-dlp
 alias pacin="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
 alias pacrm="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
 alias newsboat="newsboat -C ~/.config/newsboat/config -u ~/.config/newsboat/urls"
+alias throttle="sudo wondershaper -a wlp4s0 -d 50 -u 20"
+alias throttle-disable="sudo wondershaper -a wlp4s0 -c"

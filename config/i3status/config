@@ -1,20 +1,22 @@
 general {
         output_format = "i3bar"
-        colors = true
+        colors = false
         interval = 5
 }
 
 order += "disk /"
+order += "volume master"
 order += "disk /home"
-order += "wireless wlan0"
+order += "wireless wlp4s0"
 order += "battery 0"
 order += "load"
 order += "memory"
 order += "tztime local"
 
+
 wireless wlp4s0 {
-        format_up = "W: (%quality at %essid, %bitrate) %ip"
-        format_down = "W: down"
+        format_up = "WLAN%quality %ip"
+        format_down = "WLAN down"
 }
 
 ethernet eth0 {
@@ -83,3 +85,4 @@ disk "/home" {
 read_file uptime {
         path = "/proc/uptime"
 }
+

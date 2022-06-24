@@ -186,7 +186,7 @@ font:
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
   offset:
     x: 0
-    y: 1
+    y: 0
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the right,
@@ -218,7 +218,7 @@ draw_bold_text_with_bright_colors: false
 colors:
   # Default colors
   primary:
-    background: '0x111111'
+    background: '0x282c34'
     foreground: '0xffffff'
 
     # Bright and dim foreground colors
@@ -323,7 +323,7 @@ colors:
 # The value `0.0` is completely transparent and `1.0` is opaque.
 # background_opacity: 0.80
 window:
-  opacity: 0.9
+  opacity: 1.00 
 
 #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -359,10 +359,12 @@ window:
 #   - (macOS) /bin/bash --login
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
-#shell:
-#  program: /bin/bash
-#  args:
-#    - --login
+shell:
+  program: /bin/zsh
+  args:
+    - -l
+    - -c
+    - "tmux"
 
 # Startup directory
 #

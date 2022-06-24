@@ -1,0 +1,48 @@
+# i3blocks configuration file
+#
+# The i3blocks man page describes the usage of the binary,
+# and its website describes the configuration:
+#
+#     https://vivien.github.io/i3blocks
+
+
+# Global properties
+separator=true
+separator_block_width=15
+
+[brightness]
+command=echo -n "MONB : " && brightnessctl g
+interval=2
+
+[memory]
+command=free -m | awk 'NR==2{printf "MEM : %s/%s MB (%.2f%%)\n", $3,$2,$3*100/$2 }'
+interval=2
+
+#[disk-root]
+#command=df -h | awk '$NF=="/"{printf "/ : %d/%dGB (%s)\n", $3,$2,$5}'
+#interval=60
+
+[disk-home]
+command=df -h | awk '$NF=="/home"{printf "/home : %d/%dGB (%s)\n", $3,$2,$5}'
+interval=60
+
+[wifi]
+command=echo -n "WLAN : " && cat /proc/net/wireless | tail -n 1 | cut -b 16,17
+interval=5
+
+[vol]
+command=echo -n "VOL : " && pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'
+interval=5
+
+[weather]
+command=curl -Ss 'https://wttr.in/Kochi?0&T&Q' | cut -c 16- | head -2 | xargs echo
+interval=3600
+
+[battery]
+command=echo -n "BAT: " && cat /sys/class/power_supply/BAT0/capacity
+interval=10
+
+[time]
+command=date '+%D %H:%M:%S'
+interval=1
+

@@ -18,6 +18,7 @@ rm -r ~/.config/xmobar
 rm -r ~/.config/zathura
 rm -r ~/.config/i3
 rm -r ~/.config/i3status
+rm -r ~/.config/i3blocks
 
 ln -s ~/projects/dotfiles/config/alacritty ~/.config/alacritty
 ln -s ~/projects/dotfiles/config/bspwm ~/.config/bspwm
@@ -35,3 +36,4 @@ ln -s ~/projects/dotfiles/config/xmobar ~/.config/xmobar
 ln -s ~/projects/dotfiles/config/zathura ~/.config/zathura
 ln -s ~/projects/dotfiles/config/i3 ~/.config/i3
 ln -s ~/projects/dotfiles/config/i3status ~/.config/i3status
+ln -s ~/projects/dotfiles/config/i3blocks ~/.config/i3blocks

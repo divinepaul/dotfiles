@@ -1,11 +1,7 @@
 let mapleader = " "
-nnoremap <C-n> :NERDTree<CR>
 noremap <leader>ft :NERDTreeToggle<CR>
+nnoremap <C-n> :NvimTreeToggle<CR>
 
-nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-
-noremap <leader>p :GFiles<CR>
-noremap <leader>nf :Files<CR>
 noremap <leader>to :term<CR>
 nnoremap <leader>fs :w<CR>
 nnoremap <leader>q :q<CR>
@@ -28,6 +24,9 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 inoremap jk <Esc>
 
+nnoremap <silent> D :call comfortable_motion#flick(100)<CR>
+nnoremap <silent> U :call comfortable_motion#flick(-100)<CR>
+
 vnoremap < <gv
 vnoremap > >gv
 
@@ -43,6 +42,8 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " Using Lua functions
+nnoremap <leader>p <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>

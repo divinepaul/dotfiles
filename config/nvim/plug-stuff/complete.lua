@@ -106,24 +106,40 @@ require'lspconfig'.gopls.setup{}
 require'lspconfig'.rust_analyzer.setup{}
 require'lspconfig'.ccls.setup{}
 require'lspconfig'.dartls.setup{}
+require'lspconfig'.phpactor.setup{}
 
 require('gitsigns').setup()
 
 require('lualine').setup({
     options = {
-        theme = "vscode"
+        theme = "gruvbox"
     },
 })
 
 require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
+    disable = {},
   },
+  indent = {
+      enable = false,
+      disable = {},
+  },
+  ensure_installed = {
+      "tsx",
+      "json",
+      "html",
+      "typescript",
+      "javascript",
+      "go",
+      "rust",
+      "scss",
+      "bash",
+      "cpp",
+      "css",
+      "python",
+      "pug"
+  }
 }
 local autosave = require("autosave")
 
@@ -144,3 +160,14 @@ autosave.setup(
         debounce_delay = 135
     }
 )
+
+vim.opt.list = true
+
+require("indent_blankline").setup {
+    space_char_blankline = " ",
+    show_current_context = true,
+}
+
+
+
+
