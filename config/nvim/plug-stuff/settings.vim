@@ -1,7 +1,7 @@
 let g:NERDCreateDefaultMappings = 1
 let g:NERDTreeStatusline = '%#NonText#'
 let g:vim_markdown_folding_disabled = 1
-let g:mkdp_browser = 'firefox'
+let g:mkdp_browser = 'brave'
 
 set termguicolors 
 let ayucolor="mirage"

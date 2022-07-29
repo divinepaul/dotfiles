@@ -359,12 +359,12 @@ window:
 #   - (macOS) /bin/bash --login
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
-shell:
-  program: /bin/zsh
-  args:
-    - -l
-    - -c
-    - "tmux"
+#shell:
+  #program: /bin/zsh
+  #args:
+    #- -l
+    #- -c
+    #- "tmux"
 
 # Startup directory
 #

@@ -43,6 +43,5 @@ command=echo -n "BAT: " && cat /sys/class/power_supply/BAT0/capacity
 interval=10
 
 [time]
-command=date '+%D %H:%M:%S'
+command=date '+%d/%m %H:%M:%S'
 interval=1
-

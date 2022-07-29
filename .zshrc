@@ -3,7 +3,7 @@
 export EDITOR='nvim'
 export VISUAL='nvim'
 export BROWSER='brave'
-export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee'
+# export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee'
 export JAVA_HOME='/usr/lib/jvm/java-8-openjdk'
 export ANDROID_SDK_ROOT='/opt/android-sdk'
 export _JAVA_AWT_WM_NONREPARENTING=1

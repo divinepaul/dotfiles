@@ -11,7 +11,7 @@ alt + d
     dmenu_run_history -b -l 25
 
 alt + w 
-    brave
+    firefox
 
 # make sxhkd reload its configuration files:
 alt + Escape
