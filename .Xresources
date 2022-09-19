@@ -1,4 +1,4 @@
-Xft.dpi:       90 
+Xft.dpi:       92 
 Xft.antialias: true
 Xft.hinting:   true
 Xft.rgba:      rgb
@@ -14,29 +14,51 @@ XTerm*faceSize:          11
 XTerm*reverseVideo:      on
 XTerm*selectToClipboard: true
 
-URxvt.font: xft:Source Code Pro:size=10
-URxvt.scrollBar: false
+!URxvt.font: xft:Source Code Pro:size=10
+!URxvt.scrollBar: false
 
-URxvt*background: [80]#282c34
-URxvt*foreground: #abb2bf
-URxvt*cursorColour: #abb2bf
+!URxvt*background: [80]#282c34
+!URxvt*foreground: #abb2bf
+!URxvt*cursorColour: #abb2bf
 
-URxvt*color0: #282c34
-URxvt*color1: #e06c75
-URxvt*color2: #98c379
-URxvt*color3: #e5c07b
-URxvt*color4: #abb2bf
-URxvt*color5: #61afef
-URxvt*color6: #56b6c2
-URxvt*color7: #abb2bf
-URxvt*color8: #545862
-URxvt*color9: #e06c75
-URxvt*color10: #98c379
-URxvt*color11: #e5c07b
-URxvt*color12: #61afef
-URxvt*color13: #c678dd
-URxvt*color14: #56b6c2
-URxvt*color15: #c8ccd4
+!URxvt*color0: #282c34
+!URxvt*color1: #e06c75
+!URxvt*color2: #98c379
+!URxvt*color3: #e5c07b
+!URxvt*color4: #abb2bf
+!URxvt*color5: #61afef
+!URxvt*color6: #56b6c2
+!URxvt*color7: #abb2bf
+!URxvt*color8: #545862
+!URxvt*color9: #e06c75
+!URxvt*color10: #98c379
+!URxvt*color11: #e5c07b
+!URxvt*color12: #61afef
+!URxvt*color13: #c678dd
+!URxvt*color14: #56b6c2
+!URxvt*color15: #c8ccd4
 
 
 
+! TokyoNight colors for Xresources
+
+*background: #1a1b26
+*foreground: #c0caf5
+
+*color0: #15161E
+*color1: #f7768e
+*color2: #9ece6a
+*color3: #e0af68
+*color4: #7aa2f7
+*color5: #bb9af7
+*color6: #7dcfff
+*color7: #a9b1d6
+
+*color8: #414868
+*color9: #f7768e
+*color10: #9ece6a
+*color11: #e0af68
+*color12: #7aa2f7
+*color13: #bb9af7
+*color14: #7dcfff
+*color15: #c0caf5

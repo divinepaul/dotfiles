@@ -10,7 +10,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 autoload -U colors && colors
 alias ls='ls --color=auto'
-PS1="%B%F{blue}[%f%b%B%F{red}%1d%f%b%F{blue}]%f%F{blue}$%f "
+PS1="%B%F{26}[%f%b%B%F{red}%1d%f%b%F{26}]%f%F{26}$%f "
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
@@ -86,8 +86,9 @@ alias mp=mocp
 alias rn=ranger
 alias nf=neofetch
 alias youtube-dl=yt-dlp
-alias pacin="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
-alias pacrm="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
+alias pacin="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -Sy"
+alias pacrm="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -Sy"
 alias newsboat="newsboat -C ~/.config/newsboat/config -u ~/.config/newsboat/urls"
 alias throttle="sudo wondershaper -a wlp4s0 -d 50 -u 20"
 alias throttle-disable="sudo wondershaper -a wlp4s0 -c"
+alias htop="htop -t"

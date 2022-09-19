@@ -7,14 +7,18 @@ set termguicolors
 let ayucolor="mirage"
 let g:vscode_style = "dark"
 let g:vscode_disable_nvimtree_bg = v:true
-colorscheme onedark
+let g:tokyonight_style = "night"
+let g:tokyonight_transparent = 1 
+colorscheme tokyonight
 let g:gruvbox_contrast_dark = 'hard'
 if exists('+termguicolors')
     let &t_8f = '\<Esc>[38;2;%lu;%lu;%lum'
     let &t_8b = '\<Esc>[48;2;%lu;%lu;%lum'
 endif
-"highlight ColorColumn ctermbg=0 guibg=grey6
-"highlight Normal guibg=transparent
+
+highlight ColorColumn ctermbg=0 guibg=grey6
+highlight Normal guibg=transparent ctermbg=NONE 
+
 
 lua require'colorizer'.setup()
 

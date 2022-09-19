@@ -4,3 +4,4 @@ rust-analyzer
 go
 gopls
 ccls
+ripgrep

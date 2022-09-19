@@ -9,6 +9,7 @@ set nowrap
 set smartcase
 set noswapfile
 set nobackup
+set shada="NONE"
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
@@ -22,6 +23,7 @@ set nohlsearch
 set hidden
 set scrolloff=8
 set conceallevel=0
+set mouse=
 au BufNewFile,BufRead *.ejs set filetype=html
 filetype plugin indent on
 syntax enable

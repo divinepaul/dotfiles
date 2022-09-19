@@ -4,5 +4,18 @@
 #xset r rate 300 50 &
 #xset b off &
 #xsetroot -cursor_name left_ptr &
+#slstatus &
+#xmodmap -e "keycode 66 = F7" &
+#xmodmap -e "keycode 73 = Caps_Lock" &
+#xmodmap -e "clear lock" &
 
+#xrandr --setprovideroutputsource modesetting NVIDIA-0
+#xrandr --auto
+
+#export XDG_SESSION_TYPE=x11
+#export GDK_BACKEND=x11
+#exec gnome-session
+
+#exec dwm
 exec i3
+

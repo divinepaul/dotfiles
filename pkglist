@@ -2,12 +2,9 @@ neofetch
 htop
 git
 scrot
-bspwm
-alacritty
 vim
-sxhkd
 feh
-rofi
+dmenu
 picom
 noto-fonts
 xf86-input-synaptics
@@ -15,12 +12,10 @@ alsa-utils
 mpv
 brightnessctl
 xclip
-xorg-xsetroot
 udisks2
 ntfs-3g
 pcmanfm
 sxiv
-nvidia-prime
 unzip
 pulseaudio
 pavucontrol
@@ -37,3 +32,5 @@ xorg-xinit
 xorg-xsetroot
 xorg-server
 xorg-xset
+xorg-xrandr
+nvidia

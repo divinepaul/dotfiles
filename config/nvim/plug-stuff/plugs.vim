@@ -4,6 +4,7 @@ Plug 'projekt0n/github-nvim-theme'
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
 Plug 'ayu-theme/ayu-vim'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'adrian5/oceanic-next-vim'
 Plug 'Mofiqul/vscode.nvim'
 Plug 'ryanoasis/vim-devicons'
@@ -27,8 +28,9 @@ Plug 'preservim/nerdtree'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'norcalli/nvim-colorizer.lua'
 
-Plug 'plasticboy/vim-markdown'
+"Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'lervag/vimtex'
 
 
 Plug 'dart-lang/dart-vim-plugin'

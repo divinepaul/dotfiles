@@ -62,8 +62,9 @@ bindsym --release Print exec --no-startup-id "maim -s `date +%d_%m_%s`.png"
 floating_modifier $mod
 
 # start a terminal
-#bindsym $mod+Return exec st -e /bin/zsh -l -c tmux new-window
-bindsym $mod+Return exec alacritty
+#bindsym $mod+Return exec st -e /bin/zsh -l -c tmux attach 
+bindsym $mod+Return exec st -e /bin/zsh
+#bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+q kill
@@ -213,8 +214,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-gaps inner 0
-gaps outer 0 
+gaps inner 10 
+gaps outer 10 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
