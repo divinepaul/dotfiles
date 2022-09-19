@@ -1,6 +1,5 @@
 let mapleader = " "
-noremap <leader>ft :NERDTreeToggle<CR>
-nnoremap <C-n> :NvimTreeToggle<CR>
+noremap <leader>ft :NvimTreeToggle<CR>
 
 noremap <leader>to :term<CR>
 nnoremap <leader>fs :w<CR>

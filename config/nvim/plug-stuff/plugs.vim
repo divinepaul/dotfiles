@@ -10,7 +10,6 @@ Plug 'Mofiqul/vscode.nvim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'wojciechkepka/vim-github-dark'
 
-
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-fugitive'
 
@@ -24,7 +23,6 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'preservim/nerdcommenter'
-Plug 'preservim/nerdtree'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'norcalli/nvim-colorizer.lua'
 
@@ -43,10 +41,15 @@ Plug 'donRaphaco/neotex', { 'for': 'tex' }
 Plug 'mattn/emmet-vim'
 
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'rafamadriz/friendly-snippets'
+
 Plug 'Pocco81/AutoSave.nvim'
 
 Plug 'airblade/vim-rooter'

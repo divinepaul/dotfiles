@@ -18,6 +18,8 @@ endif
 
 highlight ColorColumn ctermbg=0 guibg=grey6
 highlight Normal guibg=transparent ctermbg=NONE 
+highlight NvimTreeNormal guibg=transparent ctermbg=NONE
+highlight NvimTreeNormalNC guibg=transparent ctermbg=NONE
 
 
 lua require'colorizer'.setup()
