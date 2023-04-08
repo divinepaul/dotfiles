@@ -42,32 +42,32 @@ require('lualine').setup({
     },
 })
 
-require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-    disable = {},
-  },
-  indent = {
-      enable = false,
-      disable = {},
-  },
-  ensure_installed = {
-      "tsx",
-      "json",
-      "html",
-      "typescript",
-      "javascript",
-      "markdown",
-      "go",
-      "rust",
-      "scss",
-      "bash",
-      "cpp",
-      "css",
-      "python",
-      "pug"
-  }
-}
+--require'nvim-treesitter.configs'.setup {
+  --highlight = {
+    --enable = true,
+    --disable = {},
+  --},
+  --indent = {
+      --enable = false,
+      --disable = {},
+  --},
+  --ensure_installed = {
+      --"tsx",
+      --"json",
+      --"html",
+      --"typescript",
+      --"javascript",
+      --"markdown",
+      --"go",
+      --"rust",
+      --"scss",
+      --"bash",
+      --"cpp",
+      --"css",
+      --"python",
+      --"pug"
+  --}
+--}
 local autosave = require("autosave")
 
 autosave.setup(
@@ -96,8 +96,6 @@ require("indent_blankline").setup {
 }
 
 
--- empty setup using defaults
-require("nvim-tree").setup()
 
 -- OR setup with some options
 require("nvim-tree").setup({
@@ -131,7 +129,7 @@ require("nvim-tree").setup({
 
 require("tokyonight").setup({
   style = "night", -- The theme comes in three styles, `storm`, a darker variant `night` and `day`
-  transparent = true, -- Enable this to disable setting the background color
+  transparent = false, -- Enable this to disable setting the background color
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
   styles = {
     -- Style to be applied to different syntax groups

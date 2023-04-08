@@ -34,11 +34,11 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   #padding:
-    #x: 1
+    #x: 1 
     #y: 1
 
   # Spread additional padding evenly around the terminal content.
-  dynamic_padding: false
+  dynamic_padding: true
 
   # Window decorations
   #
@@ -180,7 +180,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 12
+  size: 10
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -218,7 +218,8 @@ draw_bold_text_with_bright_colors: false
 colors:
   # Default colors
   primary:
-    background: '0x282c34'
+    #background: '0x16161e'
+    background: '0x000000'
     foreground: '0xffffff'
 
     # Bright and dim foreground colors
@@ -359,12 +360,12 @@ window:
 #   - (macOS) /bin/bash --login
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
-#shell:
-  #program: /bin/zsh
-  #args:
-    #- -l
-    #- -c
-    #- "tmux"
+shell:
+  program: /bin/zsh
+  args:
+    - -l
+    - -c
+    - "tmux"
 
 # Startup directory
 #

@@ -3,10 +3,15 @@
 export EDITOR='nvim'
 export VISUAL='nvim'
 export BROWSER='brave'
-# export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee'
-export JAVA_HOME='/usr/lib/jvm/java-8-openjdk'
-export ANDROID_SDK_ROOT='/opt/android-sdk'
 export _JAVA_AWT_WM_NONREPARENTING=1
+export ANDROID_SDK_ROOT='/home/div/Android/Sdk/'
+export JAVA_HOME='/home/div/Public/android-studio/jre'
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools/
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin/
+export PATH=$PATH:$ANDROID_ROOT/emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/
+export PATH=$PATH:~/go/bin/
+
 
 autoload -U colors && colors
 alias ls='ls --color=auto'

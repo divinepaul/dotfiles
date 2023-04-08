@@ -1,0 +1,15 @@
+#!/bin/bash
+sum=0
+for vid in `ls *.mkv`
+do
+    duration=`ffprobe -i $vid -show_format -loglevel quiet | grep duration | sed 's/=/\n/g' | tail -n 1 | sed 's/\./\n/g' | head -n 1`
+    if [ $duration != 'N/A' ];
+    then
+        sum=`expr $sum + $duration`
+
+    fi
+done
+echo "seconds: $sum"
+echo "minutes: `expr $sum / 60`"
+echo "hours: `expr $sum / 3600`"
+
