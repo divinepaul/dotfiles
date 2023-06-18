@@ -27,5 +27,5 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-firefox -new-tab -url "https://github.com/divinepaul" -new-tab -url "https://github.com/" &
-alacritty --working-directory ~/projects -e zsh -c "ls | fzf | xargs nvim" &
+#firefox -new-tab -url "https://github.com/divinepaul" -new-tab -url "https://github.com/" &
+#alacritty --working-directory ~/projects -e zsh -c "ls | fzf | xargs nvim" &

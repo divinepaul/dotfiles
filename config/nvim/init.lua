@@ -236,34 +236,29 @@ require('gitsigns').setup {
 }
 
 
+local function tree_on_attach(bufnr)
+  local api = require('nvim-tree.api')
+
+  local function opts(desc)
+    return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  vim.keymap.set('n', 'u', api.tree.change_root_to_parent, opts('Up'))
+  vim.keymap.set('n', 'v', api.node.open.vertical, opts('Open: Vertical Split'))
+  vim.keymap.set('n', 's', api.node.open.vertical, opts('Open: Vertical Split'))
+  vim.keymap.set('n', 't', api.node.open.tab, opts('Open: New Tab'))
+end
+
 -- OR setup with some options
 require("nvim-tree").setup({
-    sort_by = "case_sensitive",
-    view = {
-        adaptive_size = false,
-        side = "left",
-        mappings = {
-            list = {
-                { key = "u", action = "dir_up" },
-                { key = "v", action = "vsplit" },
-                { key = "s", action = "vsplit" },
-                { key = "t", action = "tabnew" },
-            },
-        },
-    },
-    renderer = {
-        group_empty = true,
-    },
-    filters = {
-        dotfiles = true,
-    },
+    on_attach = tree_on_attach,
     actions = {
         open_file = {
             window_picker = {
-                enable = true
-            },
-        },
-    },
+                enable = false
+            }
+        }
+    }
 })
 
 -- [[ Configure Telescope ]]

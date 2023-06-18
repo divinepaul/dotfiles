@@ -4,11 +4,11 @@
 
 # terminal emulator
 alt + Return
-	st
+	alacritty
 
 # program launcher
 alt + d 
-    dmenu_run_history -b -l 25
+    dmenu_run
 
 alt + w 
     firefox
