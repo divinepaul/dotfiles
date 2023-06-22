@@ -43,7 +43,7 @@
     - name: copy touchpad config
       become: true
       ansible.builtin.copy:
-        src: ./projects/dotfiles/config/touchpad/70-synaptics.conf
+        src: ./config/touchpad/70-synaptics.conf
         dest: /etc/X11/xorg.conf.d/70-synaptics.conf
 
     - name: copy scripts to /usr/bin/
@@ -99,3 +99,13 @@
         ln -s ~/projects/dotfiles/.zshrc ~/.zshrc
         ln -s ~/projects/dotfiles/.zprofile ~/.zprofile
         ln -s ~/projects/dotfiles/.bashrc ~/.bashrc
+
+    - name: make ssh dir 
+      ansible.builtin.shell: mkdir -p ~/.ssh
+
+    - name: copy ssh keys
+      ansible.builtin.copy:
+        src: {{ item }}
+        dest: ~/.ssh/
+      with_fileglob:
+        - "./ssh/*"
