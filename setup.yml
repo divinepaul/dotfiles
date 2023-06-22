@@ -48,9 +48,7 @@
 
     - name: copy scripts to /usr/bin/
       become: true
-      ansible.builtin.shell: cp -r scripts/* /usr/bin 
-      args:
-          chdir: ./projects/dotfiles
+      ansible.builtin.shell: cp -r ./scripts/* /usr/bin 
 
     - name: link config 
       ansible.builtin.shell: |
