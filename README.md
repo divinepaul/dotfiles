@@ -1,27 +1,13 @@
 # DOTFILES
 
 This repo contains all my configuration for my desktop
-<br>
-It uses bpswm, zsh, slstatus, alacritty, compton and neovim
 
----
+requires arch-linux
 
-## Requirements 
-
-- kitty 
-- zsh
-- compton
-- feh
-- neovim
-
-
-### Copy Configuration
 
 ```bash
-$ make config-programs 
-````
-
-
-### Keybindings
-
-check .config/sxhkd/sxhkdrc
+$ pacman -Sy ansible
+$ git clone https://github.com/divinepaul/dotfiles 
+$ cd dotfiles
+$ ansible-playbook -K setup.yml 
+```

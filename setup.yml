@@ -1,0 +1,101 @@
+- name: install packages.
+  hosts: localhost
+  tasks:
+
+    - include_tasks: "{{ ansible_distribution }}-pkgs-system.yml"
+    - include_tasks: "{{ ansible_distribution }}-pkgs-code.yml"
+
+    - name: clone neovim git repo 
+      ansible.builtin.git:
+        repo: https://github.com/neovim/neovim
+        dest: ./neovim
+
+    - name: cd into neovim dir and make
+      become: true
+      ansible.builtin.shell: make install
+      args:
+          chdir: ./neovim
+
+    - name: remove neovim dir
+      become: true
+      ansible.builtin.shell: rm -rf ./neovim
+
+    - name: Git personal setup email
+      git_config:
+        name: user.email
+        scope: global
+        value: "divineflu@gmail.com"
+
+    - name: Git personal setup name
+      git_config:
+        name: user.name
+        scope: global
+        value: "Divine Paul"
+
+    - name: make projects dir 
+      ansible.builtin.shell: mkdir -p ~/projects
+
+    - name: clone dotfiles git repo 
+      ansible.builtin.git:
+        repo: https://github.com/divinepaul/dotfiles
+        dest: ~/projects/dotfiles
+
+    - name: copy touchpad config
+      become: true
+      ansible.builtin.copy:
+        src: ./projects/dotfiles/config/touchpad/70-synaptics.conf
+        dest: /etc/X11/xorg.conf.d/70-synaptics.conf
+
+    - name: copy scripts to /usr/bin/
+      become: true
+      ansible.builtin.shell: cp -r scripts/* /usr/bin 
+      args:
+          chdir: ./projects/dotfiles
+
+    - name: link config 
+      ansible.builtin.shell: |
+        rm -r ~/.config/bspwm
+        rm -r ~/.config/kitty
+        rm -r ~/.config/mpd
+        rm -r ~/.config/newsboat
+        rm -r ~/.config/nvim
+        rm -r ~/.config/picom
+        rm -r ~/.config/polybar
+        rm -r ~/.config/ranger
+        rm -r ~/.config/sxhkd
+        rm -r ~/.config/tmux
+        rm -r ~/.config/touchpad
+        rm -r ~/.config/xmobar
+        rm -r ~/.config/zathura
+        rm -r ~/.config/i3
+        rm -r ~/.config/i3status
+        rm -r ~/.config/i3blocks
+        rm -r ~/.config/dunst
+        rm ~/.Xresources
+        rm ~/.xinitrc
+        rm ~/.zshrc
+        rm ~/.zprofile
+        rm ~/.bashrc
+        ln -s ~/projects/dotfiles/config/alacritty ~/.config/alacritty
+        ln -s ~/projects/dotfiles/config/bspwm ~/.config/bspwm
+        ln -s ~/projects/dotfiles/config/kitty ~/.config/kitty
+        ln -s ~/projects/dotfiles/config/mpd ~/.config/mpd
+        ln -s ~/projects/dotfiles/config/newsboat ~/.config/newsboat
+        ln -s ~/projects/dotfiles/config/nvim ~/.config/nvim
+        ln -s ~/projects/dotfiles/config/picom ~/.config/picom
+        ln -s ~/projects/dotfiles/config/polybar ~/.config/polybar
+        ln -s ~/projects/dotfiles/config/ranger ~/.config/ranger
+        ln -s ~/projects/dotfiles/config/sxhkd ~/.config/sxhkd
+        ln -s ~/projects/dotfiles/config/tmux ~/.config/tmux
+        ln -s ~/projects/dotfiles/config/touchpad ~/.config/touchpad
+        ln -s ~/projects/dotfiles/config/xmobar ~/.config/xmobar
+        ln -s ~/projects/dotfiles/config/zathura ~/.config/zathura
+        ln -s ~/projects/dotfiles/config/i3 ~/.config/i3
+        ln -s ~/projects/dotfiles/config/i3status ~/.config/i3status
+        ln -s ~/projects/dotfiles/config/i3blocks ~/.config/i3blocks
+        ln -s ~/projects/dotfiles/config/dunst ~/.config/dunst
+        ln -s ~/projects/dotfiles/.Xresources ~/.Xresources
+        ln -s ~/projects/dotfiles/.xinitrc ~/.xinitrc
+        ln -s ~/projects/dotfiles/.zshrc ~/.zshrc
+        ln -s ~/projects/dotfiles/.zprofile ~/.zprofile
+        ln -s ~/projects/dotfiles/.bashrc ~/.bashrc

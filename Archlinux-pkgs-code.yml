@@ -1,0 +1,17 @@
+- name: Install code packages
+  become: true
+  community.general.pacman:
+    name:
+      - node 
+      - npm 
+      - go
+      - ripgrep  
+      - gopls
+      - ccls
+    state: present
+
+- name: Install "live-server" npm package globally.
+  become: true
+  community.general.npm:
+    name: live-server 
+    global: true

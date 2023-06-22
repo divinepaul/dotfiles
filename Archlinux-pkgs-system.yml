@@ -1,0 +1,65 @@
+- name: upgrade the OS
+  become: true
+  community.general.pacman:
+    update_cache: true
+    upgrade: true
+
+- name: Install packages
+  become: true
+  community.general.pacman:
+    name:
+      - htop
+      - neofetch
+      - git
+      - man-pages
+      - man-db
+      - xorg-server
+      - xorg-xinit
+      - i3-wm
+      - i3blocks
+      - chromium
+      - noto-fonts
+      - dmenu
+      - alacritty
+      - alsa-utils
+      - pulseaudio
+      - pavucontrol
+      - cmake
+      - ninja
+      - unzip
+      - curl
+      - ranger
+      - tmux 
+      - zsh
+      - zsh-autosuggestions
+      - zsh-syntax-highlighting
+      - xf86-input-synaptics
+      - scrot
+      - feh
+      - picom 
+      - mpv 
+      - ffmpeg
+      - xclip
+      - udisks2
+      - ntfs-3g
+      - sxiv
+      - zathura 
+      - zathura-pdf-mupdf
+      - ueberzug
+      - brightnessctl
+    state: present
+
+- name: clone yay git repo 
+  ansible.builtin.git:
+    repo: https://aur.archlinux.org/yay.git
+    dest: ./yay 
+
+- name: cd into yay and make
+  become: true
+  ansible.builtin.shell: makepkg -si
+  args:
+      chdir: ./yay
+
+- name: remove yay dir
+  become: true
+  ansible.builtin.shell: rm -rf ./yay

@@ -18,8 +18,6 @@ require('packer').startup(function(use)
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig.nvim',
 
-            -- Useful status updates for LSP
-            'j-hui/fidget.nvim',
 
             -- Additional lua configuration, makes nvim stuff amazing
             'folke/neodev.nvim',
@@ -236,22 +234,25 @@ require('gitsigns').setup {
 }
 
 
-local function tree_on_attach(bufnr)
-  local api = require('nvim-tree.api')
+local tree_attach = function(bufnr) 
+    local api = require "nvim-tree.api"
 
-  local function opts(desc)
-    return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-  end
+    local function opts(desc)
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+    end
 
-  vim.keymap.set('n', 'u', api.tree.change_root_to_parent, opts('Up'))
-  vim.keymap.set('n', 'v', api.node.open.vertical, opts('Open: Vertical Split'))
-  vim.keymap.set('n', 's', api.node.open.vertical, opts('Open: Vertical Split'))
-  vim.keymap.set('n', 't', api.node.open.tab, opts('Open: New Tab'))
+    -- default mappings
+    api.config.mappings.default_on_attach(bufnr)
+
+    -- custom mappings
+    vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent,        opts('Up'))
+    vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
+    vim.keymap.set('n', 's',     api.node.open.vertical,                  opts('Help'))
 end
 
 -- OR setup with some options
 require("nvim-tree").setup({
-    on_attach = tree_on_attach,
+    on_attach = tree_attach,
     actions = {
         open_file = {
             window_picker = {
@@ -299,7 +300,7 @@ vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'javascript','java', 'typescript', 'cpp', 'go', 'lua', 'python', 'rust', 'help', 'vim','svelte' },
+    ensure_installed = { 'c', 'javascript','java', 'typescript', 'cpp', 'go', 'lua', 'python', 'rust', 'vim','svelte' },
 
     highlight = { enable = true },
     indent = { enable = true, disable = { 'python' } },
@@ -464,8 +465,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
     vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
                  {update_in_insert = true})
 
--- Turn on lsp status information
-require('fidget').setup()
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
