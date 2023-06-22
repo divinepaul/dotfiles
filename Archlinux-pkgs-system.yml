@@ -55,8 +55,7 @@
     dest: ./yay 
 
 - name: cd into yay and make
-  become: true
-  ansible.builtin.shell: makepkg -si
+  ansible.builtin.shell: makepkg -si --noconfirm
   args:
       chdir: ./yay
 

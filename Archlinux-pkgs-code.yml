@@ -2,7 +2,7 @@
   become: true
   community.general.pacman:
     name:
-      - node 
+      - nodejs
       - npm 
       - go
       - ripgrep  
