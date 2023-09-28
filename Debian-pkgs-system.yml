@@ -1,0 +1,52 @@
+- name: upgrade the OS
+  ansible.builtin.apt:
+    upgrade: dist
+
+- name: update packages 
+  ansible.builtin.apt:
+    update_cache: yes
+
+- name: install neovim dependencies 
+  ansible.builtin.apt:
+    pkg:
+    - ninja-build
+    - gettext
+    - cmake
+    - unzip
+    - curl
+    - git
+    - htop
+    - man-db
+    - manpages
+    - neofetch
+    - xserver-xorg-core
+    - xinit
+    - i3-wm
+    - i3blocks
+    - chromium
+    - fonts-noto
+    - suckless-tools
+    - alacritty
+    - alsa-utils
+    - pulseaudio
+    - ranger
+    - tmux
+    - zsh
+    - zsh-autosuggestions
+    - zsh-syntax-highlighting
+    - xserver-xorg-input-synaptics
+    - scort
+    - feh
+    - picom
+    - mpv
+    - ffmpeg
+    - xclip
+    - udisks2
+    - ntfs-3g
+    - sxiv
+    - zathura
+    - zathura-pdf-poppler
+    - ueberzug
+    - dunst
+    - maim
+    - brightnessctl

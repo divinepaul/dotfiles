@@ -69,6 +69,8 @@ require('packer').startup(function(use)
     use 'navarasu/onedark.nvim' -- Theme inspired by Atom
     use 'shaunsingh/solarized.nvim'
 
+    use 'xuhdev/vim-latex-live-preview'
+
     use({
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
@@ -152,6 +154,7 @@ vim.o.completeopt = 'menuone,noselect'
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+vim.g.livepreview_previewer = 'zathura'
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`

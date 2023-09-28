@@ -219,8 +219,8 @@ draw_bold_text_with_bright_colors: false
 colors:
   # Default colors
   primary:
-    #background: '0x16161e'
     background: '0x000000'
+    #background: '0x222222'
     foreground: '0xffffff'
 
     # Bright and dim foreground colors
@@ -325,7 +325,7 @@ colors:
 # The value `0.0` is completely transparent and `1.0` is opaque.
 # background_opacity: 0.80
 window:
-  opacity: 0.70 
+  opacity: 0.80 
 
 #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -363,10 +363,6 @@ window:
 #   - (Windows) powershell
 shell:
   program: /bin/zsh
-  args:
-    - -l
-    - -c
-    - "tmux attach-session -t tsession"
 
 # Startup directory
 #

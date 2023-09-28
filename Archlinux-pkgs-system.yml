@@ -46,6 +46,8 @@
       - zathura 
       - zathura-pdf-mupdf
       - ueberzug
+      - dunst
+      - maim
       - brightnessctl
     state: present
 

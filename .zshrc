@@ -20,6 +20,9 @@ PS1="%B%F{26}[%f%b%B%F{red}%1d%f%b%F{26}]%f%F{26}$%f "
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
+setopt INC_APPEND_HISTORY
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_ALL_DUPS
 
 # Basic auto/tab complete:
 autoload -U compinit
