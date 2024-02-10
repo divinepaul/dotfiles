@@ -3,22 +3,6 @@
   tasks:
 
     - include_tasks: "{{ ansible_distribution }}-pkgs-system.yml"
-    - include_tasks: "{{ ansible_distribution }}-pkgs-code.yml"
-
-    - name: clone neovim git repo 
-      ansible.builtin.git:
-        repo: https://github.com/neovim/neovim
-        dest: ./neovim
-
-    - name: cd into neovim dir and make
-      become: true
-      ansible.builtin.shell: make install
-      args:
-          chdir: ./neovim
-
-    - name: remove neovim dir
-      become: true
-      ansible.builtin.shell: rm -rf ./neovim
 
     - name: Git personal setup email
       git_config:

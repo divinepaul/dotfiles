@@ -19,13 +19,13 @@
       - i3blocks
       - chromium
       - noto-fonts
-      - dmenu
+      - rofi
       - alacritty
       - alsa-utils
       - pulseaudio
       - pavucontrol
+      - fzf
       - cmake
-      - ninja
       - unzip
       - curl
       - ranger
@@ -51,16 +51,34 @@
       - brightnessctl
     state: present
 
-- name: clone yay git repo 
-  ansible.builtin.git:
-    repo: https://aur.archlinux.org/yay.git
-    dest: ./yay 
-
-- name: cd into yay and make
-  ansible.builtin.shell: makepkg -si --noconfirm
-  args:
-      chdir: ./yay
-
-- name: remove yay dir
+- name: Install code packages
   become: true
-  ansible.builtin.shell: rm -rf ./yay
+  community.general.pacman:
+    name:
+      - nodejs
+      - npm 
+      - go
+      - ripgrep  
+      - gopls
+      - ccls
+    state: present
+
+- name: Install "live-server" npm package globally.
+  become: true
+  community.general.npm:
+    name: live-server 
+    global: true
+
+#- name: clone yay git repo 
+  #ansible.builtin.git:
+    #repo: https://aur.archlinux.org/yay.git
+    #dest: ./yay 
+
+#- name: cd into yay and make
+  #ansible.builtin.shell: makepkg -si --noconfirm
+  #args:
+      #chdir: ./yay
+
+#- name: remove yay dir
+  #become: true
+  #ansible.builtin.shell: rm -rf ./yay

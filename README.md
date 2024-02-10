@@ -9,5 +9,5 @@ requires arch-linux
 $ pacman -Sy ansible
 $ git clone https://github.com/divinepaul/dotfiles 
 $ cd dotfiles
-$ ansible-playbook -K setup.yml 
+$ ansible-playbook -K -J setup.yml 
 ```
