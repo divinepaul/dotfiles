@@ -85,9 +85,9 @@
     - name: make ssh dir 
       ansible.builtin.shell: mkdir -p ~/.ssh
 
-    - name: copy ssh keys
-      ansible.builtin.copy:
-        src: "{{ item }}"
-        dest: ~/.ssh/
-      with_fileglob:
-        - "./ssh/*"
+    #- name: copy ssh keys
+      #ansible.builtin.copy:
+        #src: "{{ item }}"
+        #dest: ~/.ssh/
+      #with_fileglob:
+        #- "./ssh/*"

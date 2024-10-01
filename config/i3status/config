@@ -5,13 +5,12 @@ general {
 }
 
 order += "disk /"
-order += "volume master"
 order += "disk /home"
 order += "wireless wlp4s0"
 order += "battery 0"
 order += "load"
 order += "memory"
-order += "tztime local"
+order += "tztime berlin"
 
 
 wireless wlp4s0 {

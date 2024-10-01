@@ -1,4 +1,5 @@
 Xft.dpi:       92 
+!ideal 92
 Xft.antialias: true
 Xft.hinting:   true
 Xft.rgba:      rgb

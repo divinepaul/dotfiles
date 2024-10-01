@@ -5,12 +5,15 @@ export VISUAL='nvim'
 export BROWSER='brave'
 export _JAVA_AWT_WM_NONREPARENTING=1
 export ANDROID_SDK_ROOT='/home/div/Android/Sdk/'
-export JAVA_HOME='/home/div/Public/android-studio/jre'
+export JAVA_HOME='/usr/lib/jvm/java-17-openjdk-amd64'
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools/
 export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin/
 export PATH=$PATH:$ANDROID_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/tools/
 export PATH=$PATH:~/go/bin/
+export PATH="/usr/bin/flutter/bin:$PATH"
+export PATH=$PATH:/home/div/anaconda3/bin/
+export PATH=$PATH:/home/div/Downloads/blender-4.2.1-linux-x64/
 
 
 autoload -U colors && colors
@@ -85,11 +88,12 @@ bindkey '^e' edit-command-line
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 # Load zsh-syntax-highlighting; should be last.
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 
-alias vim=nvim
-alias nv=nvim .
+alias python=python3
+alias sqlite=sqlite3
+alias vim=nvim alias nv=nvim .
 alias mp=mocp
 alias rn=ranger
 alias nf=neofetch
@@ -100,3 +104,19 @@ alias newsboat="newsboat -C ~/.config/newsboat/config -u ~/.config/newsboat/urls
 alias throttle="sudo wondershaper -a wlp4s0 -d 50 -u 20"
 alias throttle-disable="sudo wondershaper -a wlp4s0 -c"
 alias htop="htop -t"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/div/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/div/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/div/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/div/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
