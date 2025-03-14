@@ -20,4 +20,5 @@ xmodmap -e "clear lock" &
 
 exec i3 
 #exec dwm
-
+#exec startxfce4
+#exec startlxde

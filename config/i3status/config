@@ -14,7 +14,7 @@ order += "tztime berlin"
 
 
 wireless wlp4s0 {
-        format_up = "WLAN%quality %ip"
+        format_up = "WLAN%quality"
         format_down = "WLAN down"
 }
 

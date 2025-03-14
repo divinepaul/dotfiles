@@ -1,8 +1,10 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/div/.zsh/completions:"* ]]; then export FPATH="/home/div/.zsh/completions:$FPATH"; fi
 # Enable colors and change prompt:
 #
 export EDITOR='nvim'
 export VISUAL='nvim'
-export BROWSER='brave'
+# export BROWSER='chromium'
 export _JAVA_AWT_WM_NONREPARENTING=1
 export ANDROID_SDK_ROOT='/home/div/Android/Sdk/'
 export JAVA_HOME='/usr/lib/jvm/java-17-openjdk-amd64'
@@ -11,10 +13,11 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin/
 export PATH=$PATH:$ANDROID_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/tools/
 export PATH=$PATH:~/go/bin/
-export PATH="/usr/bin/flutter/bin:$PATH"
+export PATH=$PATH:"/home/div/flutter-sdk/flutter/bin:$PATH"
 export PATH=$PATH:/home/div/anaconda3/bin/
 export PATH=$PATH:/home/div/Downloads/blender-4.2.1-linux-x64/
-
+export PATH=$PATH:/opt/gradle/gradle-8.10.2/bin
+export PATH=$PATH:/usr/local/go/bin
 
 autoload -U colors && colors
 alias ls='ls --color=auto'
@@ -120,3 +123,13 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+# pnpm
+export PNPM_HOME="/home/div/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+. "/home/div/.deno/env"export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH

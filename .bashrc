@@ -35,3 +35,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+. "/home/div/.deno/env"
+source /home/div/.local/share/bash-completion/completions/deno.bash

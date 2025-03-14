@@ -32,9 +32,9 @@ font pango:monospace 8
 exec --no-startup-id nm-applet
 #exec --no-startup-id volumeicon 
 
-exec --no-startup-id feh --bg-fill ~/.config/back.jpg
+exec --no-startup-id feh --bg-fill ~/.config/back.png
 #exec --no-startup-id xsetroot -solid "#000000"
-#exec --no-startup-id picom --backend glx --vsync
+exec --no-startup-id picom --backend glx --vsync
 exec --no-startup-id xrdb merge ~/.Xresources
 exec --no-startup-id xset r rate 300 50
 #exec --no-startup-id xset r off
@@ -60,7 +60,7 @@ bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ t
 bindsym XF86AudioMicMute exec --no-startup-id "pactl set-source-mute @DEFAULT_SOURCE@ toggle && notify-send `echo MIC MUTED` && $refresh_i3status"
 bindsym XF86MonBrightnessUp exec --no-startup-id "brightnessctl -q set +15 && notify-send `echo BRIGHTNESS && brightnessctl g` -t 100"
 bindsym XF86MonBrightnessDown exec --no-startup-id "brightnessctl -q set $(($(brightnessctl get)-15)) && notify-send `echo BRIGHTNESS && brightnessctl g` -t 100"
-bindsym --release Print exec --no-startup-id "maim -s ~/screenshots/`date +%d_%m_%s`.png"
+bindsym --release Print exec --no-startup-id "mkdir -p ~/screenshots && maim -s | tee ~/screenshots/$(date '+%Y-%m-%d_%H-%M-%S').png | xclip -selection clipboard -t image/png"
 #&& cat ~/screenshots/`date +%d_%m_%s`.png | xclip -selection clipboard -t img/png
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -232,7 +232,7 @@ bar {
         focused_workspace  #000000 #494177 #FFFFFF
     }
     status_command i3status
-    position bottom
+    position top
 }
 
 for_window [class="^.*"] border pixel 1
