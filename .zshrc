@@ -6,18 +6,19 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 # export BROWSER='chromium'
 export _JAVA_AWT_WM_NONREPARENTING=1
-export ANDROID_SDK_ROOT='/home/div/Android/Sdk/'
-export JAVA_HOME='/usr/lib/jvm/java-17-openjdk-amd64'
+export ANDROID_SDK_ROOT='/home/div/Downloads/software/Android/Sdk'
+export JAVA_HOME='/usr/lib/jvm/jre-21-openjdk'
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools/
 export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin/
 export PATH=$PATH:$ANDROID_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/tools/
 export PATH=$PATH:~/go/bin/
-export PATH=$PATH:"/home/div/flutter-sdk/flutter/bin:$PATH"
 export PATH=$PATH:/home/div/anaconda3/bin/
 export PATH=$PATH:/home/div/Downloads/blender-4.2.1-linux-x64/
 export PATH=$PATH:/opt/gradle/gradle-8.10.2/bin
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/home/div/Downloads/software/flutter/bin
+export PATH=$PATH:$HOME/.pub-cache/bin
 
 autoload -U colors && colors
 alias ls='ls --color=auto'
@@ -107,21 +108,11 @@ alias newsboat="newsboat -C ~/.config/newsboat/config -u ~/.config/newsboat/urls
 alias throttle="sudo wondershaper -a wlp4s0 -d 50 -u 20"
 alias throttle-disable="sudo wondershaper -a wlp4s0 -c"
 alias htop="htop -t"
+alias cd=z
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/div/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/div/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/div/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/div/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+eval "$(zoxide init zsh)"
+
+export PATH=$HOME/.local/bin:$PATH
 
 
 # pnpm
@@ -131,5 +122,11 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-. "/home/div/.deno/env"export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/.local/bin:$PATH
+. "/home/div/.deno/env"
+
+# bun completions
+[ -s "/home/div/.bun/_bun" ] && source "/home/div/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

@@ -8,10 +8,10 @@ alt + Return
 
 # program launcher
 alt + d 
-    dmenu_run
+    rofi -show run
 
 alt + w 
-    firefox
+    chromium-browser
 
 # make sxhkd reload its configuration files:
 alt + Escape
@@ -21,22 +21,22 @@ alt + Escape
 # audio and brightness
 
 XF86AudioRaiseVolume
-    pactl set-sink-volume @DEFAULT_SINK@ +10%
+    pactl set-sink-volume @DEFAULT_SINK@ +10% && notify-send `echo VOLUME  && pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'` -t 200
 
 XF86AudioLowerVolume
-    pactl set-sink-volume @DEFAULT_SINK@ -10%
+    pactl set-sink-volume @DEFAULT_SINK@ -10% && notify-send `echo VOLUME && pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'` -t 200
 
 XF86AudioMute
-    amixer -q set Master toggle
+    amixer -q set Master toggle && notify-send `echo MIC MUTED`
 
 XF86MonBrightnessUp
-    brightnessctl -q set +15
+    brightnessctl -q set +15%
 
 XF86MonBrightnessDown
-    brightnessctl -q set 15-
+    brightnessctl -q set 15%-
 
 Print
-    scrot
+    mkdir -p ~/screenshots && maim -s | tee ~/screenshots/$(date '+%Y-%m-%d_%H-%M-%S').png | xclip -selection clipboard -t image/png
 
 # bspwm hotkeys
 
@@ -105,7 +105,7 @@ super + {o,i}
 
 # focus or send to the given desktop
 alt + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+	bspc {desktop -f,node -d} '^{1-9,10}' && notify-send '^{1-9,10}' -t 100 
 
 #
 # preselect

@@ -39,7 +39,7 @@ exec --no-startup-id xrdb merge ~/.Xresources
 exec --no-startup-id xset r rate 300 50
 #exec --no-startup-id xset r off
 exec --no-startup-id xset b off
-exec --no-startup-id brightnessctl -q set 110
+exec --no-startup-id brightnessctl -q set 50% 
 #exec --no-startup-id redshift -l 10.18:76.36 
 exec --no-startup-id dunst
 exec --no-startup-id xset s off
@@ -58,8 +58,8 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAUL
 bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -10% && notify-send `echo VOLUME && pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'` -t 200 && $refresh_i3status"
 bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ toggle && notify-send `echo AUDIO MUTED` && $refresh_i3status"
 bindsym XF86AudioMicMute exec --no-startup-id "pactl set-source-mute @DEFAULT_SOURCE@ toggle && notify-send `echo MIC MUTED` && $refresh_i3status"
-bindsym XF86MonBrightnessUp exec --no-startup-id "brightnessctl -q set +15 && notify-send `echo BRIGHTNESS && brightnessctl g` -t 100"
-bindsym XF86MonBrightnessDown exec --no-startup-id "brightnessctl -q set $(($(brightnessctl get)-15)) && notify-send `echo BRIGHTNESS && brightnessctl g` -t 100"
+bindsym XF86MonBrightnessUp exec --no-startup-id "brightnessctl -q set +15% && notify-send `echo BRIGHTNESS && brightnessctl g` -t 100"
+bindsym XF86MonBrightnessDown exec --no-startup-id "brightnessctl -q set $(($(brightnessctl get)-15%)) && notify-send `echo BRIGHTNESS && brightnessctl g` -t 100"
 bindsym --release Print exec --no-startup-id "mkdir -p ~/screenshots && maim -s | tee ~/screenshots/$(date '+%Y-%m-%d_%H-%M-%S').png | xclip -selection clipboard -t image/png"
 #&& cat ~/screenshots/`date +%d_%m_%s`.png | xclip -selection clipboard -t img/png
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -236,4 +236,5 @@ bar {
 }
 
 for_window [class="^.*"] border pixel 1
+for_window [title="^app$"] floating enable
 new_window 1pixel

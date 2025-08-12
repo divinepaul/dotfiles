@@ -1,0 +1,22 @@
+[
+  {
+    "context": "Editor && vim_mode == insert && !menu",
+    "bindings": {
+      "j k": "vim::NormalBefore"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      "space j": "workspace::ActivatePaneDown",
+      "space k": "workspace::ActivatePaneUp",
+      "space h": "workspace::ActivatePaneLeft",
+      "space l": "workspace::ActivatePaneRight",
+      "space p": "file_finder::Toggle",
+      "space f t": "project_panel::ToggleFocus",
+      "space f r": "editor::Format",
+      "space q": "pane::CloseActiveItem",
+      "space f s": "workspace::Save"
+    }
+  }
+]

@@ -2,27 +2,27 @@
 draw_bold_text_with_bright_colors = false
 
 [colors.bright]
-black = "0x5b6268"
-blue = "0x3071db"
-cyan = "0x46d9ff"
-green = "0x4db5bd"
-magenta = "0xa9a1e1"
-red = "0xda8548"
-white = "0xdfdfdf"
-yellow = "0xecbe7b"
+black = "0xaaaaaa"
+blue = "0xffffff"
+cyan = "0xffffff"
+green = "0xffffff"
+magenta = "0xffffff"
+red = "0xffffff"
+white = "0xffffff"
+yellow = "0xffffff"
 
 [colors.normal]
 black = "0x000000"
-blue = "0x3333ff"
-cyan = "0x5699af"
-green = "0x98be65"
-magenta = "0xc678dd"
-red = "0xff3333"
-white = "0xffffff"
-yellow = "0xda8548"
+blue = "0xffffff"
+cyan = "0xffffff"
+green = "0xffffff"
+magenta = "0xffffff"
+red = "0xffffff"
+white = "0xbbbbbb"
+yellow = "0x999999"
 
 [colors.primary]
-background = "0x1a1b26"
+background = "0x000000"
 foreground = "0xffffff"
 
 [colors.selection]
@@ -146,7 +146,7 @@ mods = "Shift"
 [scrolling]
 history = 5000
 
-[shell]
+[terminal.shell]
 program = "/bin/zsh"
 
 [window]

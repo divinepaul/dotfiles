@@ -103,22 +103,94 @@ require("lazy").setup({
 			require("gitsigns").setup()
 		end,
 	},
-	{
-		"rmagatti/auto-session",
-		lazy = false,
-		---enables autocomplete for opts
-		---@module "auto-session"
-		---@type AutoSession.Config
-		opts = {
-			suppressed_dirs = { "~/", "~/projects", "~/Downloads", "/" },
-			-- log_level = 'debug',
-		},
-	},
+  {
+    'rmagatti/auto-session',
+    lazy = false,
+    ---enables autocomplete for opts
+    ---@module "auto-session"
+    ---@type AutoSession.Config
+    opts = {
+      suppressed_dirs = { '~/', '~/projects', '~/Downloads', '/' },
+      -- log_level = 'debug',
+    }
+  },
 	{
 		"folke/todo-comments.nvim",
 		event = "VimEnter",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = { signs = false },
+	},
+	{
+		-- Main LSP Configuration
+		"neovim/nvim-lspconfig",
+		dependencies = {
+			{ "williamboman/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
+			"williamboman/mason-lspconfig.nvim",
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
+			-- Useful status updates for LSP.
+			-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
+			{ "j-hui/fidget.nvim", opts = {} },
+			-- Allows extra capabilities provided by nvim-cmp
+			"hrsh7th/cmp-nvim-lsp",
+		},
+		config = function()
+			vim.api.nvim_create_autocmd("LspAttach", {
+				group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
+				callback = function(event)
+					local map = function(keys, func)
+						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " })
+					end
+
+					map("gd", require("telescope.builtin").lsp_definitions)
+					map("gr", require("telescope.builtin").lsp_references)
+					map("gI", require("telescope.builtin").lsp_implementations)
+					map("<leader>D", require("telescope.builtin").lsp_type_definitions)
+					map("<leader>ds", require("telescope.builtin").lsp_document_symbols)
+					map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols)
+					map("<leader>rn", vim.lsp.buf.rename)
+					map("<leader>ca", vim.lsp.buf.code_action)
+					map("gD", vim.lsp.buf.declaration)
+				end,
+			})
+
+			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+
+			local servers = {
+				gopls = {},
+				lua_ls = {
+					-- cmd = {...},
+					-- filetypes = { ...},
+					-- capabilities = {},
+					settings = {
+						Lua = {
+							completion = {
+								callSnippet = "Replace",
+							},
+							-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+							-- diagnostics = { disable = { 'missing-fields' } },
+						},
+					},
+				},
+			}
+			require("mason").setup()
+
+			local ensure_installed = vim.tbl_keys(servers or {})
+			vim.list_extend(ensure_installed, {
+				"stylua", -- Used to format Lua code
+			})
+			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+
+			require("mason-lspconfig").setup({
+				handlers = {
+					function(server_name)
+						local server = servers[server_name] or {}
+						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+						require("lspconfig")[server_name].setup(server)
+					end,
+				},
+			})
+		end,
 	},
 	{ -- Autoformat
 		"stevearc/conform.nvim",
@@ -147,60 +219,89 @@ require("lazy").setup({
 		},
 	},
 	{
-		"saghen/blink.cmp",
-		-- optional: provides snippets for the snippet source
-		dependencies = { "rafamadriz/friendly-snippets" },
-		version = "1.*",
-		---@module 'blink.cmp'
-		---@type blink.cmp.Config
-		opts = {
-			keymap = {
-				preset = "enter",
-				["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
-				["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
-			},
-			appearance = {
-				nerd_font_variant = "mono",
-			},
-			completion = { documentation = { auto_show = true } },
-			sources = {
-				default = { "lsp", "path", "snippets", "buffer" },
-			},
-			fuzzy = { implementation = "prefer_rust_with_warning" },
-		},
-		opts_extend = { "sources.default" },
-	},
-	{
-		"mason-org/mason-lspconfig.nvim",
-		opts = {
-			ensure_installed = { "lua_ls", "rust_analyzer" },
-		},
+		"hrsh7th/nvim-cmp",
+		event = "InsertEnter",
 		dependencies = {
-			{ "mason-org/mason.nvim", opts = {} },
-			"neovim/nvim-lspconfig",
-			"saghen/blink.cmp",
-		},
-	},
-
-	{
-		"neovim/nvim-lspconfig",
-		dependencies = { "saghen/blink.cmp" },
-
-		-- example using `opts` for defining servers
-		opts = {
-			servers = {
-				lua_ls = {},
-				gopls = {},
+			{
+				"L3MON4D3/LuaSnip",
+				build = (function()
+					-- Build Step is needed for regex support in snippets.
+					-- This step is not supported in many windows environments.
+					-- Remove the below condition to re-enable on windows.
+					if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then
+						return
+					end
+					return "make install_jsregexp"
+				end)(),
+				dependencies = {
+					-- `friendly-snippets` contains a variety of premade snippets.
+					--    See the README about individual language/framework/plugin snippets:
+					--    https://github.com/rafamadriz/friendly-snippets
+					{
+						"rafamadriz/friendly-snippets",
+						config = function()
+							require("luasnip.loaders.from_vscode").lazy_load()
+						end,
+					},
+				},
 			},
+			"saadparwaiz1/cmp_luasnip",
+
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-buffer",
 		},
-		config = function(_, opts)
-			local lspconfig = require("lspconfig")
-			for server, config in pairs(opts.servers) do
-				-- passing config.capabilities to blink.cmp merges with the capabilities in your
-				-- `opts[server].capabilities, if you've defined it
-				config.capabilities = require("blink.cmp").get_lsp_capabilities()
-				lspconfig[server].setup(config)
-			end
+		config = function()
+			local cmp = require("cmp")
+			local luasnip = require("luasnip")
+			luasnip.config.setup({})
+
+			cmp.setup({
+				snippet = {
+					expand = function(args)
+						luasnip.lsp_expand(args.body)
+					end,
+				},
+				completion = { completeopt = "menu,menuone,noinsert" },
+
+				mapping = cmp.mapping.preset.insert({
+					["<C-n>"] = cmp.mapping.select_next_item(),
+					["<C-p>"] = cmp.mapping.select_prev_item(),
+					["<C-b>"] = cmp.mapping.scroll_docs(-4),
+					["<C-f>"] = cmp.mapping.scroll_docs(4),
+					["<C-y>"] = cmp.mapping.confirm({ select = true }),
+
+					["<CR>"] = cmp.mapping.confirm({ select = true }),
+					["<Tab>"] = cmp.mapping.select_next_item(),
+					["<S-Tab>"] = cmp.mapping.select_prev_item(),
+
+					-- Manually trigger a completion from nvim-cmp.
+					--  Generally you don't need this, because nvim-cmp will display
+					--  completions whenever it has completion options available.
+					["<C-Space>"] = cmp.mapping.complete({}),
+
+					["<C-l>"] = cmp.mapping(function()
+						if luasnip.expand_or_locally_jumpable() then
+							luasnip.expand_or_jump()
+						end
+					end, { "i", "s" }),
+					["<C-h>"] = cmp.mapping(function()
+						if luasnip.locally_jumpable(-1) then
+							luasnip.jump(-1)
+						end
+					end, { "i", "s" }),
+				}),
+				sources = {
+					{
+						name = "lazydev",
+						group_index = 0,
+					},
+					{ name = "nvim_lsp" },
+					{ name = "luasnip" },
+					{ name = "buffer" },
+					{ name = "path" },
+				},
+			})
 		end,
 	},
 	{
@@ -270,6 +371,15 @@ require("lazy").setup({
 			--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 		end,
 	},
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		build = "cd app && yarn install",
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	},
 	{ "dhruvasagar/vim-table-mode" },
 	{
 		"numToStr/Comment.nvim",
@@ -286,7 +396,7 @@ require("lazy").setup({
 
 require("autoclose").setup()
 
--- vim.cmd([[colorscheme gruvbox ]])
+vim.cmd([[colorscheme carbonfox ]])
 
 vim.keymap.set("n", "<leader>ft", ":NvimTreeToggle<CR>")
 vim.keymap.set("n", "<leader>h", ":wincmd h<CR>")
@@ -307,24 +417,3 @@ vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 --map('n', '<leader>gf', ":GFiles<CR>")
 vim.keymap.set("n", "<leader>sv", ":vsplit<CR>")
 vim.keymap.set("n", "<leader>sh", ":split<CR>")
--- enable inline errors
-vim.diagnostic.config({ virtual_text = true })
-
-vim.api.nvim_create_autocmd("LspAttach", {
-	desc = "LSP actions",
-	callback = function(event)
-		local opts = { buffer = event.buf }
-
-		vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
-		vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
-		vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
-		vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
-		vim.keymap.set("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
-		vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
-		vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
-		vim.keymap.set("n", "ge", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
-		vim.keymap.set("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-		vim.keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
-		vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-	end,
-})
