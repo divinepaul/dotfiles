@@ -2,6 +2,7 @@ general {
         output_format = "i3bar"
         colors = false
         interval = 5
+        markup = "pango"
 }
 
 order += "disk /"
@@ -10,6 +11,8 @@ order += "wireless wlp4s0"
 order += "battery 0"
 order += "load"
 order += "memory"
+order += "volume master"
+order += "tztime utc"
 order += "tztime berlin"
 
 
@@ -26,9 +29,9 @@ ethernet eth0 {
 battery 0 {
         format = "%status %percentage %remaining %emptytime"
         format_down = "No battery"
-        status_chr = "⚡ CHR"
+        status_chr = "CHR"
         status_bat = "BAT"
-        status_unk = "? UNK"
+        status_unk = "UNK"
         status_full = "☻ FULL"
         path = "/sys/class/power_supply/BAT%d/uevent"
         low_threshold = 10
@@ -48,6 +51,10 @@ path_exists VPN {
         path = "/proc/sys/net/ipv4/conf/tun0"
 }
 
+volume master {
+    format = "VOL %volume"
+}
+
 tztime local {
         format = "%Y-%m-%d %H:%M:%S"
         timezone = "Asia/Kolkata"
@@ -58,27 +65,32 @@ tztime berlin {
         timezone = "Europe/Berlin"
 }
 
+tztime utc {
+        format = "%Y-%m-%d %H:%M:%S %Z"
+        timezone = "UTC"
+}
+
 load {
         format = "%5min"
 }
 
 cpu_temperature 0 {
         format = "T: %degrees °C"
-        path = "/sys/devices/platform/coretemp.0/temp1_input"
+        path = "/sys/devices/platform/coretemp.0/temp0_input"
 }
 
 memory {
-        format = "%used"
+        format = "MEMORY %free"
         threshold_degraded = "10%"
-        format_degraded = "MEMORY: %free"
+        format_degraded = "<span color='red'>MEMORY %free</span>"
 }
 
 disk "/" {
-        format = "%free"
+        format = "/ %free"
 }
 
 disk "/home" {
-        format = "%free"
+        format = "/home %free"
 }
 
 read_file uptime {

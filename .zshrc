@@ -7,7 +7,7 @@ export VISUAL='nvim'
 # export BROWSER='chromium'
 export _JAVA_AWT_WM_NONREPARENTING=1
 export ANDROID_SDK_ROOT='/home/div/Downloads/software/Android/Sdk'
-export JAVA_HOME='/usr/lib/jvm/jre-21-openjdk'
+export JAVA_HOME='/usr/lib/jvm/jdk-21.0.7-oracle-x64'
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools/
 export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin/
 export PATH=$PATH:$ANDROID_ROOT/emulator
@@ -19,6 +19,7 @@ export PATH=$PATH:/opt/gradle/gradle-8.10.2/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/home/div/Downloads/software/flutter/bin
 export PATH=$PATH:$HOME/.pub-cache/bin
+export AWS_PROFILE=default
 
 autoload -U colors && colors
 alias ls='ls --color=auto'
@@ -122,6 +123,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+#
 . "/home/div/.deno/env"
 
 # bun completions
