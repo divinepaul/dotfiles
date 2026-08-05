@@ -47,11 +47,11 @@ exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms 
 #exec --no-startup-id tmux new-session -s tsession
 
-# remap capslock to f7 and f7 to capslock
-# for tmux
-exec --no-startup-id xmodmap -e "keycode 66 = F7"
-exec --no-startup-id xmodmap -e "keycode 73 = Caps_Lock"
+# change caps lock to alt
+exec --no-startup-id xmodmap -e "keycode 66 = Alt_L"
+# Ensure the Caps Lock function is disabled
 exec --no-startup-id xmodmap -e "clear lock"
+exec --no-startup-id xmodmap -e "remove lock = Caps_Lock"
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -230,11 +230,17 @@ gaps outer 0
 bar {
     colors{
         background #111111
-        focused_workspace  #000000 #494177 #FFFFFF
+        focused_workspace  #444444 #555555 #ffffff
     }
     status_command i3status
-    position top
+    position bottom
 }
+
+client.focused          #444444 #555555 #ffffff #444444   #222222
+client.focused_inactive #333333 #1a1a1a #cccccc #333333   #1a1a1a
+client.unfocused        #222222 #111111 #aaaaaa #222222   #111111
+client.urgent           #aa3333 #aa3333 #ffffff #aa3333   #aa3333
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 for_window [class="^.*"] border pixel 1
 for_window [title="^app$"] floating enable

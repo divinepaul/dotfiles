@@ -14,12 +14,12 @@ vim.o.smartcase = true
 vim.o.swapfile = false
 vim.o.shadafile = "NONE"
 vim.o.incsearch = true
+vim.o.smartcase = true
 vim.o.splitbelow = true
 vim.o.clipboard = "unnamedplus"
 vim.o.termguicolors = true
 --vim.o.relativenumber = true
 vim.o.ignorecase = true
-vim.o.incsearch = true
 vim.o.smartcase = true
 vim.o.scrolloff = 8
 vim.o.updatetime = 250
@@ -31,6 +31,7 @@ vim.cmd([[set scl=yes ]])
 --vim.cmd [[highlight LineNr guifg=#a95e01]]
 vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]])
 vim.o.completeopt = "menuone,noselect"
+vim.o.guifont = "FiraCode Nerd Font:h10"
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -55,14 +56,67 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup({
 	{ "huyvohcmc/atlas.vim" },
-	{ "m4xshen/autoclose.nvim" },
+	-- { "nvim-mini/mini.nvim", version = "*" },
+	-- { "m4xshen/autoclose.nvim" },
+	{
+		"coffebar/neovim-project",
+		opts = {
+			projects = { -- define project roots
+				"~/projects/*",
+				"~/work/*",
+				"~/temp/*",
+			},
+			picker = {
+				type = "fzf-lua", -- one of "telescope", "fzf-lua", or "snacks"
+			},
+		},
+		init = function()
+			-- enable saving the state of plugins in the session
+			vim.opt.sessionoptions:append("globals") -- save global variables that start with an uppercase letter and contain at least one lowercase letter.
+		end,
+		dependencies = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "ibhagwan/fzf-lua" },
+			{ "Shatur/neovim-session-manager" },
+		},
+		lazy = false,
+		priority = 100,
+	},
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
 		opts = {},
 	},
-	{ "junegunn/fzf.vim", dependencies = { "junegunn/fzf" } },
+	{
+		"rockyzhang24/arctic.nvim",
+		dependencies = { "rktjmp/lush.nvim" },
+		name = "main",
+		branch = "v2",
+		priority = 1000,
+	},
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+			"nvim-tree/nvim-web-devicons", -- optional, but recommended
+		},
+		lazy = false, -- neo-tree will lazily load itself
+	},
+	{
+		"ibhagwan/fzf-lua",
+		-- optional for icon support
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		-- or if using mini.icons/mini.nvim
+		-- dependencies = { "nvim-mini/mini.icons" },
+		---@module "fzf-lua"
+		---@type fzf-lua.Config|{}
+		---@diagnostic disable: missing-fields
+		opts = {},
+		---@diagnostic enable: missing-fields
+	},
 	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
@@ -371,7 +425,20 @@ require("lazy").setup({
 				-- clangd = {},
 				-- gopls = {},
 				-- pyright = {},
-				-- rust_analyzer = {},
+				rust_analyzer = {
+					settings = {
+						["rust-analyzer"] = {
+							cargo = {
+								buildScripts = {
+									enable = true,
+								},
+							},
+							procMacro = {
+								enable = true,
+							},
+						},
+					},
+				},
 				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 				--
 				-- Some languages (like typescript) have entire language plugins that can be useful:
@@ -437,6 +504,11 @@ require("lazy").setup({
 		dependencies = { "rktjmp/lush.nvim" },
 	},
 	{ "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... },
+	{
+		"webhooked/kanso.nvim",
+		lazy = false,
+		priority = 1000,
+	},
 	{ "EdenEast/nightfox.nvim" },
 	{
 		"nvim-lualine/lualine.nvim",
@@ -449,16 +521,6 @@ require("lazy").setup({
 				},
 			})
 		end,
-	},
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"MunifTanjim/nui.nvim",
-			"nvim-tree/nvim-web-devicons", -- optional, but recommended
-		},
-		lazy = false, -- neo-tree will lazily load itself
 	},
 	{ "pocco81/auto-save.nvim" },
 	{ -- Highlight, edit, and navigate code
@@ -520,11 +582,39 @@ require("lazy").setup({
 			},
 		},
 	},
+	{
+		"jinzhongjia/zig-lamp",
+		event = "VeryLazy",
+		-- Optional but recommended: build the local FFI lib to enable faster/safer verification & formatting
+		build = ":ZigLampBuild async",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			-- For Neovim < 0.11 you’ll likely want lspconfig
+			"neovim/nvim-lspconfig",
+		},
+		init = function()
+			-- Backward-compatible global vars (all optional)
+			-- Auto-install ZLS: timeout in milliseconds; set to nil to disable
+			vim.g.zig_lamp_zls_auto_install = nil
+			-- Fallback to system zls when no local match is found
+			vim.g.zig_lamp_fall_back_sys_zls = nil
+			-- Extra LSP options merged into defaults
+			vim.g.zig_lamp_zls_lsp_opt = {}
+			-- ZLS server settings (overrides built-in recommendations)
+			vim.g.zig_lamp_zls_settings = {}
+			-- Help text color for the package panel
+			vim.g.zig_lamp_pkg_help_fg = "#CF5C00"
+			-- Timeout (ms) used by `zig fetch` when retrieving url hashes
+			vim.g.zig_lamp_zig_fetch_timeout = 5000
+		end,
+	},
 })
 
-require("autoclose").setup()
+require("fzf-lua")
 
-vim.cmd([[colorscheme tokyonight ]])
+-- require("autoclose").setup()
+
+vim.cmd([[colorscheme arctic ]])
 
 vim.keymap.set("n", "<leader>ft", ":Neotree<CR>")
 vim.keymap.set("n", "<leader>h", ":wincmd h<CR>")
@@ -537,8 +627,9 @@ vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("n", "<leader>q", ":q<CR>")
 vim.keymap.set("n", "<leader>fs", ":w<CR>")
 
-vim.keymap.set("n", "<leader>p", ":Files<CR>", {})
-vim.keymap.set("n", "<leader>fg", ":Rg<CR>", {})
+vim.keymap.set("n", "<leader>p", ":FzfLua files<CR>", {})
+vim.keymap.set("n", "<leader>fp", ":NeovimProjectDiscover history<CR>", {})
+vim.keymap.set("n", "<leader>fg", ":FzfLua live_grep<CR>", {})
 
 vim.keymap.set("n", "<leader>sv", ":vsplit<CR>")
 vim.keymap.set("n", "<leader>sh", ":split<CR>")
@@ -583,3 +674,26 @@ vim.diagnostic.config({ virtual_text = true })
 -- 	},
 -- 	on_attach = function(client, bufnr) end,
 -- })
+--
+vim.lsp.enable("dartls")
+
+require("neo-tree").setup({
+	window = {
+		mappings = {
+			["l"] = "open",
+			["<CR>"] = "open",
+			["h"] = function(state)
+				local node = state.tree:get_node()
+
+				if node.type == "directory" and node:is_expanded() then
+					-- close the folder
+					require("neo-tree.sources.filesystem.commands").close_node(state)
+				else
+					-- go to parent
+					require("neo-tree.sources.filesystem.commands").navigate_up(state)
+				end
+			end,
+		},
+	},
+})
+-- require("mini.files").setup()

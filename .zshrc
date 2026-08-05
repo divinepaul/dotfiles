@@ -6,8 +6,8 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 # export BROWSER='chromium'
 export _JAVA_AWT_WM_NONREPARENTING=1
-export ANDROID_SDK_ROOT='/home/div/Downloads/software/Android/Sdk'
-export JAVA_HOME='/usr/lib/jvm/jdk-21.0.7-oracle-x64'
+export ANDROID_SDK_ROOT='/home/div/Android/Sdk'
+export JAVA_HOME='/usr/lib/jvm/java-21-openjdk'
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools/
 export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin/
 export PATH=$PATH:$ANDROID_ROOT/emulator
@@ -17,8 +17,25 @@ export PATH=$PATH:/home/div/anaconda3/bin/
 export PATH=$PATH:/home/div/Downloads/blender-4.2.1-linux-x64/
 export PATH=$PATH:/opt/gradle/gradle-8.10.2/bin
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:/home/div/Downloads/software/flutter/bin
+export PATH=$PATH:/home/div/Downloads/Code/software/flutter/bin
 export PATH=$PATH:$HOME/.pub-cache/bin
+export PATH=$PATH:/home/div/Downloads/odin/odin-linux-amd64-nightly+2026-07-10
+export PATH=$PATH:/home/div/Downloads/zig/zig-x86_64-linux-0.17.0-dev.1509+bb296ab9b
+
+
+push() {
+  if [ $# -eq 0 ]; then
+    git push
+  else
+    git add .
+    git commit -m "$*"
+    git push
+  fi
+}
+
+alias gconflict="git diff --name-only --diff-filter=U --relative"
+
+
 export AWS_PROFILE=default
 
 autoload -U colors && colors
@@ -110,7 +127,7 @@ alias throttle="sudo wondershaper -a wlp4s0 -d 50 -u 20"
 alias throttle-disable="sudo wondershaper -a wlp4s0 -c"
 alias htop="htop -t"
 alias cd=z
-
+alias latexwatch="latexmk -pdf -pvc -synctex=1  -pdflatex=\"pdflatex -synctex=1 -interaction=nonstopmode\"" 
 eval "$(zoxide init zsh)"
 
 export PATH=$HOME/.local/bin:$PATH
@@ -132,3 +149,9 @@ esac
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# opencode
+export PATH=/home/div/.opencode/bin:$PATH
+
+# Dark GTK theme for all GTK apps
+export GTK_THEME=Adwaita-dark
