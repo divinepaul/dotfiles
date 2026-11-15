@@ -1,6 +1,29 @@
 [colors]
 draw_bold_text_with_bright_colors = false
 
+[colors.bright]
+black = "#444b6a"
+blue = "#7da6ff"
+cyan = "#0db9d7"
+green = "#b9f27c"
+magenta = "#bb9af7"
+red = "#ff7a93"
+white = "#acb0d0"
+yellow = "#ff9e64"
+
+[colors.normal]
+black = "#32344a"
+blue = "#7aa2f7"
+cyan = "#449dab"
+green = "#9ece6a"
+magenta = "#ad8ee6"
+red = "#f7768e"
+white = "#787c99"
+yellow = "#e0af68"
+
+[colors.primary]
+background = "#1a1b26"
+foreground = "#a9b1d6"
 
 [env]
 TERM = "xterm-256color"
@@ -9,19 +32,19 @@ TERM = "xterm-256color"
 size = 11.0 
 
 [font.bold]
-family = "UbuntuMono Nerd Font"
+family = "monospace"
 style = "Bold"
 
 [font.bold_italic]
-family = "UbuntuMono Nerd Font"
+family = "monospace"
 style = "Bold Italic"
 
 [font.italic]
-family = "UbuntuMono Nerd Font"
+family = "monospace"
 style = "Italic"
 
 [font.normal]
-family = "UbuntuMono Nerd Font"
+family = "monospace"
 style = "Regular"
 
 [font.offset]
@@ -118,10 +141,13 @@ mode = "~Alt"
 mods = "Shift"
 
 [scrolling]
-history = 5000
+history = 50000
 
 [terminal.shell]
 program = "/bin/zsh"
 
 [window]
-opacity = 0.9
+opacity = 0.8
+
+[selection]
+save_to_clipboard = true

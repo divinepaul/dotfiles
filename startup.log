@@ -1,0 +1,412 @@
+--- Startup times for process: Primary (or UI client) ---
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.004  000.004: --- NVIM STARTING ---
+006.898  006.894: event init
+017.460  010.562: early init
+017.543  000.083: locale set
+020.565  003.022: init first window
+024.980  004.416: inits 1
+025.021  000.041: window checked
+025.026  000.005: parsing arguments
+027.365  000.099  000.099: require('vim._core.shared')
+027.689  000.024  000.024: require('vim._core.options')
+027.695  000.325  000.300: require('vim._core.editor')
+027.731  000.034  000.034: require('vim._core.system')
+027.734  000.487  000.029: require('vim._init_packages')
+027.737  002.224: init lua interpreter
+029.832  002.096: nvim_ui_attach
+030.160  000.328: nvim_set_client_info
+030.162  000.002: --- NVIM STARTED ---
+
+--- Startup times for process: Embedded ---
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.004  000.004: --- NVIM STARTING ---
+000.136  000.132: event init
+000.220  000.084: early init
+000.279  000.059: locale set
+000.331  000.052: init first window
+000.661  000.330: inits 1
+000.673  000.012: window checked
+000.700  000.028: parsing arguments
+001.197  000.063  000.063: require('vim._core.shared')
+001.293  000.025  000.025: require('vim._core.options')
+001.298  000.097  000.073: require('vim._core.editor')
+001.335  000.034  000.034: require('vim._core.system')
+001.338  000.224  000.029: require('vim._init_packages')
+001.341  000.417: init lua interpreter
+001.420  000.079: expanding arguments
+001.577  000.156: inits 2
+001.833  000.257: init highlight
+001.836  000.002: waiting for UI
+002.008  000.172: done waiting for UI
+002.016  000.008: clear screen
+002.158  000.032  000.032: require('vim._core.util')
+002.221  000.013  000.013: require('vim.keymap')
+004.292  000.824  000.824: sourcing nvim_exec2()
+004.324  000.012  000.012: require('vim._core.log')
+004.396  000.017  000.017: require('vim.tty')
+004.449  000.005  000.005: require('vim.F')
+005.900  000.101  000.101: require('vim._core.mcursor')
+005.980  003.960  002.956: require('vim._core.defaults')
+005.983  000.007: init default mappings & autocommands
+007.815  000.568  000.568: sourcing /tmp/.mount_nvimafGhAj/usr/share/nvim/runtime/ftplugin.vim
+008.186  000.230  000.230: sourcing /tmp/.mount_nvimafGhAj/usr/share/nvim/runtime/indent.vim
+008.704  000.035  000.035: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+008.769  000.053  000.053: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+012.229  000.091  000.091: require('vim.async._runtime')
+012.236  000.224  000.133: require('vim.async._future')
+012.576  000.336  000.336: require('coxpcall')
+012.586  001.160  000.600: require('vim.async._core')
+012.854  000.126  000.126: require('vim.async._event')
+012.868  000.279  000.153: require('vim.async._queue')
+012.986  000.115  000.115: require('vim.async._semaphore')
+012.992  002.213  000.658: require('vim.async')
+013.007  004.096  001.883: require('vim.pack')
+013.085  000.013  000.013: require('vim.uri')
+013.091  000.046  000.033: require('vim.fs')
+014.335  000.217  000.217: require('telescope.builtin')
+014.871  000.087  000.087: require('lualine_require')
+015.132  000.780  000.693: require('lualine')
+015.257  000.013  000.013: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+016.006  000.287  000.287: require('lualine.highlight')
+016.526  000.011  000.011: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+016.539  000.004  000.004: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+016.548  000.004  000.004: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+016.560  000.004  000.004: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+016.569  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+016.577  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+016.585  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+016.593  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+016.601  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+016.610  000.004  000.004: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+016.617  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+016.625  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+016.633  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+016.641  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+016.648  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+016.657  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+016.665  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+016.673  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+016.700  000.004  000.004: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+016.772  000.004  000.004: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+016.781  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+016.841  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+016.854  000.010  000.010: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+017.566  000.039  000.039: require('lualine.utils.mode')
+017.935  000.101  000.101: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+017.945  000.005  000.005: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.134  000.007  000.007: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.144  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.151  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.161  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.169  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.179  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.186  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.195  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.204  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.212  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.239  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.281  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.303  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.320  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.344  000.004  000.004: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.352  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.359  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.368  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.376  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.383  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.405  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.521  000.008  000.008: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.530  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.536  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.543  000.004  000.004: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.880  000.006  000.006: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.890  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.936  000.039  000.039: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.944  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.952  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.961  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.968  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.980  000.004  000.004: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.988  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.998  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+019.005  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+019.013  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+019.022  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+019.029  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+019.040  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+019.047  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+019.054  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+019.063  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+019.070  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+019.078  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+019.090  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+019.099  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+019.109  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+019.119  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+019.126  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+019.147  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+019.157  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+019.164  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+019.365  000.010  000.010: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+019.387  000.006  000.006: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+019.401  000.009  000.009: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+019.420  000.006  000.006: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+019.429  000.005  000.005: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+019.438  011.036  005.025: sourcing /home/div/.config/nvim/init.lua
+019.447  001.631: sourcing vimrc file(s)
+020.254  000.095  000.095: sourcing nvim_exec2() called at /tmp/.mount_nvimafGhAj/usr/share/nvim/runtime/filetype.lua:0
+020.258  000.610  000.515: sourcing /tmp/.mount_nvimafGhAj/usr/share/nvim/runtime/filetype.lua
+020.923  000.071  000.071: sourcing /tmp/.mount_nvimafGhAj/usr/share/nvim/runtime/syntax/synload.vim
+020.995  000.434  000.363: sourcing /tmp/.mount_nvimafGhAj/usr/share/nvim/runtime/syntax/syntax.vim
+021.519  000.225  000.225: sourcing /home/div/.local/share/nvim/site/pack/core/opt/telescope.nvim/plugin/telescope.lua
+021.625  000.020  000.020: sourcing /home/div/.local/share/nvim/site/pack/core/opt/plenary.nvim/plugin/plenary.vim
+022.830  000.368  000.368: sourcing /tmp/.mount_nvimafGhAj/usr/share/nvim/runtime/plugin/gzip.vim
+023.882  000.383  000.383: sourcing /tmp/.mount_nvimafGhAj/usr/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+023.934  001.056  000.673: sourcing /tmp/.mount_nvimafGhAj/usr/share/nvim/runtime/plugin/matchit.vim
+024.786  000.196  000.196: sourcing /tmp/.mount_nvimafGhAj/usr/share/nvim/runtime/pack/dist/opt/netrw/plugin/netrwPlugin.vim
+024.841  000.865  000.670: sourcing /tmp/.mount_nvimafGhAj/usr/share/nvim/runtime/plugin/netrwPlugin.vim
+025.050  000.132  000.132: sourcing /tmp/.mount_nvimafGhAj/usr/share/nvim/runtime/plugin/rplugin.vim
+025.211  000.113  000.113: sourcing /tmp/.mount_nvimafGhAj/usr/share/nvim/runtime/plugin/tarPlugin.vim
+025.309  000.038  000.038: sourcing /tmp/.mount_nvimafGhAj/usr/share/nvim/runtime/plugin/tutor.vim
+026.901  000.364  000.364: require('vim.log')
+026.971  001.133  000.769: require('vim._watch')
+026.979  001.542  000.409: require('nvim.autoread')
+027.006  001.644  000.102: sourcing /tmp/.mount_nvimafGhAj/usr/share/nvim/runtime/plugin/autoread.lua
+027.248  000.189  000.189: sourcing /tmp/.mount_nvimafGhAj/usr/share/nvim/runtime/plugin/dir.lua
+027.369  000.073  000.073: sourcing /tmp/.mount_nvimafGhAj/usr/share/nvim/runtime/plugin/editorconfig.lua
+027.513  000.101  000.101: sourcing /tmp/.mount_nvimafGhAj/usr/share/nvim/runtime/plugin/man.lua
+028.031  000.416  000.416: require('nvim.matchparen')
+028.055  000.492  000.076: sourcing /tmp/.mount_nvimafGhAj/usr/share/nvim/runtime/plugin/matchparen.lua
+028.266  000.155  000.155: sourcing /tmp/.mount_nvimafGhAj/usr/share/nvim/runtime/plugin/net.lua
+028.434  000.120  000.120: sourcing /tmp/.mount_nvimafGhAj/usr/share/nvim/runtime/plugin/osc52.lua
+028.623  000.141  000.141: sourcing /tmp/.mount_nvimafGhAj/usr/share/nvim/runtime/plugin/shada.lua
+028.779  000.081  000.081: sourcing /tmp/.mount_nvimafGhAj/usr/share/nvim/runtime/plugin/spellfile.lua
+029.056  000.228  000.228: sourcing /tmp/.mount_nvimafGhAj/usr/share/nvim/runtime/plugin/zip.lua
+029.103  002.570: loading rtp plugins
+029.279  000.176: loading packages
+029.282  000.003: loading after plugins
+029.293  000.010: inits 3
+029.296  000.003: reading ShaDa
+029.450  000.154: opening buffers
+029.532  000.082: BufEnter autocommands
+029.536  000.004: editing files in windows
+029.562  000.026: VimEnter autocommands
+029.581  000.020: UIEnter autocommands
+030.223  000.475  000.475: sourcing /tmp/.mount_nvimafGhAj/usr/share/nvim/runtime/autoload/provider/clipboard.vim
+030.232  000.175: before starting main loop
+030.980  000.683  000.683: require('vim.iter')
+032.084  001.169: first screen update
+032.087  000.003: --- NVIM STARTED ---
+
+--- Startup times for process: Primary (or UI client) ---
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.009  000.009: --- NVIM STARTING ---
+007.561  007.552: event init
+018.170  010.609: early init
+018.369  000.199: locale set
+021.617  003.248: init first window
+028.194  006.577: inits 1
+028.291  000.097: window checked
+028.302  000.011: parsing arguments
+032.765  000.156  000.156: require('vim._core.shared')
+033.526  000.026  000.026: require('vim._core.options')
+033.532  000.761  000.735: require('vim._core.editor')
+033.570  000.036  000.036: require('vim._core.system')
+033.573  000.994  000.042: require('vim._init_packages')
+033.576  004.280: init lua interpreter
+036.054  002.478: nvim_ui_attach
+036.383  000.329: nvim_set_client_info
+036.385  000.002: --- NVIM STARTED ---
+
+--- Startup times for process: Embedded ---
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.004  000.004: --- NVIM STARTING ---
+000.151  000.147: event init
+000.241  000.091: early init
+000.308  000.067: locale set
+000.357  000.049: init first window
+000.679  000.322: inits 1
+000.688  000.009: window checked
+000.692  000.004: parsing arguments
+001.180  000.059  000.059: require('vim._core.shared')
+001.277  000.027  000.027: require('vim._core.options')
+001.282  000.097  000.070: require('vim._core.editor')
+001.320  000.035  000.035: require('vim._core.system')
+001.322  000.221  000.031: require('vim._init_packages')
+001.325  000.411: init lua interpreter
+001.399  000.074: expanding arguments
+001.603  000.205: inits 2
+001.904  000.300: init highlight
+001.905  000.001: waiting for UI
+002.095  000.190: done waiting for UI
+002.104  000.009: clear screen
+002.306  000.046  000.046: require('vim._core.util')
+002.415  000.014  000.014: require('vim.keymap')
+005.530  000.964  000.964: sourcing nvim_exec2()
+005.667  000.029  000.029: require('vim._core.log')
+005.828  000.031  000.031: require('vim.tty')
+005.922  000.012  000.012: require('vim.F')
+008.354  000.204  000.204: require('vim._core.mcursor')
+008.440  006.328  005.027: require('vim._core.defaults')
+008.444  000.012: init default mappings & autocommands
+011.567  001.109  001.109: sourcing /tmp/.mount_nvimmnfAaC/usr/share/nvim/runtime/ftplugin.vim
+012.336  000.489  000.489: sourcing /tmp/.mount_nvimmnfAaC/usr/share/nvim/runtime/indent.vim
+012.921  000.013  000.013: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+013.015  000.085  000.085: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+018.682  000.199  000.199: require('vim.async._runtime')
+018.693  000.494  000.296: require('vim.async._future')
+019.464  000.764  000.764: require('coxpcall')
+019.483  002.578  001.319: require('vim.async._core')
+019.941  000.224  000.224: require('vim.async._event')
+019.948  000.461  000.237: require('vim.async._queue')
+020.206  000.253  000.253: require('vim.async._semaphore')
+020.222  003.985  000.693: require('vim.async')
+020.261  006.765  002.781: require('vim.pack')
+020.454  000.042  000.042: require('vim.uri')
+020.476  000.132  000.090: require('vim.fs')
+022.239  000.213  000.213: require('telescope.builtin')
+022.760  000.090  000.090: require('lualine_require')
+023.018  000.759  000.669: require('lualine')
+023.313  000.017  000.017: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+024.046  000.243  000.243: require('lualine.highlight')
+024.605  000.012  000.012: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+024.619  000.004  000.004: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+024.629  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+024.640  000.004  000.004: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+024.649  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+024.657  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+024.665  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+024.673  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+024.681  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+024.689  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+024.697  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+024.705  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+024.713  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+024.721  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+024.729  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+024.736  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+024.745  000.004  000.004: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+024.753  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+024.760  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+024.768  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+024.776  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+024.783  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+024.796  000.010  000.010: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+025.446  000.069  000.069: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+025.458  000.005  000.005: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+025.670  000.007  000.007: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+025.681  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+025.689  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+025.699  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+025.708  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+025.718  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+025.726  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+025.736  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+025.762  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+025.770  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+025.780  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+025.788  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+025.797  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+025.805  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+025.817  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+025.824  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+025.834  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+025.842  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+025.849  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+025.858  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+025.866  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+025.985  000.008  000.008: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+025.993  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+025.999  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.006  000.004  000.004: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.329  000.006  000.006: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.362  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.409  000.039  000.039: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.417  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.424  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.434  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.441  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.454  000.004  000.004: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.462  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.470  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.479  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.486  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.494  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.503  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.513  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.526  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.533  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.541  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.550  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.558  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.567  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.575  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.586  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.595  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.603  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.610  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.619  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+026.627  000.003  000.003: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+027.179  000.045  000.045: require('lualine.utils.mode')
+027.234  000.011  000.011: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+027.256  000.006  000.006: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+027.270  000.009  000.009: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+027.280  000.005  000.005: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+027.289  000.006  000.006: sourcing nvim_exec2() called at /home/div/projects/dotfiles/config/nvim/init.lua:0
+027.299  014.722  006.044: sourcing /home/div/.config/nvim/init.lua
+027.308  002.545: sourcing vimrc file(s)
+027.977  000.088  000.088: sourcing nvim_exec2() called at /tmp/.mount_nvimmnfAaC/usr/share/nvim/runtime/filetype.lua:0
+027.980  000.520  000.432: sourcing /tmp/.mount_nvimmnfAaC/usr/share/nvim/runtime/filetype.lua
+029.020  000.098  000.098: sourcing /tmp/.mount_nvimmnfAaC/usr/share/nvim/runtime/syntax/synload.vim
+029.090  000.747  000.648: sourcing /tmp/.mount_nvimmnfAaC/usr/share/nvim/runtime/syntax/syntax.vim
+029.790  000.379  000.379: sourcing /home/div/.local/share/nvim/site/pack/core/opt/telescope.nvim/plugin/telescope.lua
+029.900  000.020  000.020: sourcing /home/div/.local/share/nvim/site/pack/core/opt/plenary.nvim/plugin/plenary.vim
+031.501  000.565  000.565: sourcing /tmp/.mount_nvimmnfAaC/usr/share/nvim/runtime/plugin/gzip.vim
+032.952  000.645  000.645: sourcing /tmp/.mount_nvimmnfAaC/usr/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+033.010  001.456  000.810: sourcing /tmp/.mount_nvimmnfAaC/usr/share/nvim/runtime/plugin/matchit.vim
+033.993  000.196  000.196: sourcing /tmp/.mount_nvimmnfAaC/usr/share/nvim/runtime/pack/dist/opt/netrw/plugin/netrwPlugin.vim
+034.049  000.991  000.795: sourcing /tmp/.mount_nvimmnfAaC/usr/share/nvim/runtime/plugin/netrwPlugin.vim
+034.275  000.141  000.141: sourcing /tmp/.mount_nvimmnfAaC/usr/share/nvim/runtime/plugin/rplugin.vim
+034.430  000.101  000.101: sourcing /tmp/.mount_nvimmnfAaC/usr/share/nvim/runtime/plugin/tarPlugin.vim
+034.537  000.049  000.049: sourcing /tmp/.mount_nvimmnfAaC/usr/share/nvim/runtime/plugin/tutor.vim
+036.644  000.576  000.576: require('vim.log')
+036.679  001.330  000.754: require('vim._watch')
+036.687  001.972  000.641: require('nvim.autoread')
+036.722  002.115  000.143: sourcing /tmp/.mount_nvimmnfAaC/usr/share/nvim/runtime/plugin/autoread.lua
+037.058  000.276  000.276: sourcing /tmp/.mount_nvimmnfAaC/usr/share/nvim/runtime/plugin/dir.lua
+037.205  000.089  000.089: sourcing /tmp/.mount_nvimmnfAaC/usr/share/nvim/runtime/plugin/editorconfig.lua
+037.372  000.118  000.118: sourcing /tmp/.mount_nvimmnfAaC/usr/share/nvim/runtime/plugin/man.lua
+038.140  000.653  000.653: require('nvim.matchparen')
+038.166  000.742  000.090: sourcing /tmp/.mount_nvimmnfAaC/usr/share/nvim/runtime/plugin/matchparen.lua
+038.391  000.168  000.168: sourcing /tmp/.mount_nvimmnfAaC/usr/share/nvim/runtime/plugin/net.lua
+038.575  000.132  000.132: sourcing /tmp/.mount_nvimmnfAaC/usr/share/nvim/runtime/plugin/osc52.lua
+038.774  000.148  000.148: sourcing /tmp/.mount_nvimmnfAaC/usr/share/nvim/runtime/plugin/shada.lua
+038.911  000.074  000.074: sourcing /tmp/.mount_nvimmnfAaC/usr/share/nvim/runtime/plugin/spellfile.lua
+039.194  000.230  000.230: sourcing /tmp/.mount_nvimmnfAaC/usr/share/nvim/runtime/plugin/zip.lua
+039.252  002.884: loading rtp plugins
+039.440  000.188: loading packages
+039.443  000.003: loading after plugins
+039.454  000.011: inits 3
+039.456  000.002: reading ShaDa
+039.584  000.127: opening buffers
+039.664  000.080: BufEnter autocommands
+039.667  000.003: editing files in windows
+039.674  000.007: --- NVIM STARTED ---
+

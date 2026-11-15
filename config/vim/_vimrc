@@ -1,0 +1,41 @@
+set number
+set nowrap
+
+" tab stuff
+set expandtab 
+set tabstop=4
+
+set noswapfile
+
+set clipboard=unnamedplus
+
+" shortcuts
+let mapleader=" "
+inoremap jk <Esc>
+noremap <leader>q :q<CR>
+noremap <leader>ft :NERDTreeToggle<CR>
+
+noremap <leader>h :wincmd h<CR>
+noremap <leader>j :wincmd j<CR>
+noremap <leader>k :wincmd k<CR>
+noremap <leader>l :wincmd l<CR>
+
+xnoremap < <gv
+xnoremap > >gv
+
+noremap fs :w<CR>
+
+noremap <leader>p :Files<CR>
+noremap <leader>fg :Rg<CR>
+
+noremap <leader>sv :vsplit<CR>
+noremap <leader>sh :ssplit<CR>
+
+syntax on
+
+call plug#begin()
+Plug 'preservim/nerdtree'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim' "serach stuff
+Plug 'jiangmiao/auto-pairs' "auto close stuff
+call plug#end()

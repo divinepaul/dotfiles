@@ -42,8 +42,8 @@ autoload -U colors && colors
 alias ls='ls --color=auto'
 PS1="%B%F{26}[%f%b%B%F{red}%1d%f%b%F{26}]%f%F{26}$%f "
 # History in cache directory:
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=100000
+SAVEHIST=100000
 HISTFILE=~/.cache/zsh/history
 setopt INC_APPEND_HISTORY
 setopt HIST_FIND_NO_DUPS
@@ -120,18 +120,12 @@ alias mp=mocp
 alias rn=ranger
 alias nf=neofetch
 alias youtube-dl=yt-dlp
-alias pacin="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -Sy"
-alias pacrm="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -Sy"
-alias newsboat="newsboat -C ~/.config/newsboat/config -u ~/.config/newsboat/urls"
-alias throttle="sudo wondershaper -a wlp4s0 -d 50 -u 20"
-alias throttle-disable="sudo wondershaper -a wlp4s0 -c"
 alias htop="htop -t"
 alias cd=z
 alias latexwatch="latexmk -pdf -pvc -synctex=1  -pdflatex=\"pdflatex -synctex=1 -interaction=nonstopmode\"" 
 eval "$(zoxide init zsh)"
 
 export PATH=$HOME/.local/bin:$PATH
-
 
 # pnpm
 export PNPM_HOME="/home/div/.local/share/pnpm"
@@ -141,17 +135,11 @@ case ":$PATH:" in
 esac
 # pnpm end
 #
-. "/home/div/.deno/env"
-
-# bun completions
-[ -s "/home/div/.bun/_bun" ] && source "/home/div/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
 # opencode
 export PATH=/home/div/.opencode/bin:$PATH
 
 # Dark GTK theme for all GTK apps
 export GTK_THEME=Adwaita-dark
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
