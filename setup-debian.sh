@@ -68,7 +68,7 @@ i3blocks \
 chromium \
 fonts-noto \
 suckless-tools \
-alacritty \
+stterm \
 alsa-utils \
 pulseaudio \
 ranger \
@@ -93,7 +93,11 @@ maim \
 brightnessctl \
 rofi \
 ripgrep \
-polybar \
 
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+
+# i dont use zsh anymore but whatever
 mkdir -p ~/.cache/zsh/
 touch ~/.cache/zsh/history
+
+sudo cp ~/projects/dotfiles/scripts/* /usr/bin

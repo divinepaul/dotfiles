@@ -6,34 +6,56 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
-. "$HOME/.cargo/env"
-
 export EDITOR='nvim'
 export VISUAL='nvim'
+# export BROWSER='chromium'
+export _JAVA_AWT_WM_NONREPARENTING=1
+export ANDROID_SDK_ROOT='/home/div/Android/Sdk'
+export JAVA_HOME='/usr/lib/jvm/java-21-openjdk'
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools/
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin/
+export PATH=$PATH:$ANDROID_ROOT/emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/
+export PATH=$PATH:~/go/bin/
+export PATH=$PATH:/home/div/anaconda3/bin/
+export PATH=$PATH:/home/div/Downloads/blender-4.2.1-linux-x64/
+export PATH=$PATH:/opt/gradle/gradle-8.10.2/bin
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/home/div/Downloads/Code/software/flutter/bin
+export PATH=$PATH:$HOME/.pub-cache/bin
 
 
 alias vim="nvim"
-alias nv="nvim ."
+alias nv="nvim"
 alias mp="mocp"
 alias rn="ranger"
 alias pacin="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
 alias pacrm="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/div/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/div/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/div/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/div/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+push() {
+  if [ $# -eq 0 ]; then
+    git push
+  else
+    git add .
+    git commit -m "$*"
+    git push
+  fi
+}
 
-. "/home/div/.deno/env"
-source /home/div/.local/share/bash-completion/completions/deno.bash
+
+alias python=python3
+alias sqlite=sqlite3
+
+# opencode
+export PATH=/home/div/.opencode/bin:$PATH
+export GTK_THEME=Adwaita-dark
+
+alias cd=z
+eval "$(zoxide init bash)"
+
+# fnm
+FNM_PATH="/home/div/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "$(fnm env --shell bash)"
+fi

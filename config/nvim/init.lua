@@ -1,4 +1,3 @@
--- NVIM v0.13.0-dev-2001+g7437121ea3
 vim.o.hlsearch = true
 vim.wo.number = true
 vim.o.mouse = nil
@@ -14,22 +13,21 @@ vim.o.wrap = false
 vim.o.smartcase = true
 vim.o.swapfile = false
 vim.o.shadafile = "NONE"
+vim.o.autowriteall = true
 vim.o.incsearch = true
 vim.o.smartcase = true
 vim.o.splitbelow = true
 vim.o.clipboard = "unnamedplus"
 vim.o.termguicolors = true
---vim.o.relativenumber = true
+vim.o.relativenumber = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.scrolloff = 8
 vim.o.updatetime = 250
 vim.wo.signcolumn = "yes"
 vim.o.signcolumn = "yes"
-vim.o.termguicolors = true
 vim.o.background = "dark"
 vim.cmd([[set scl=yes ]])
---vim.cmd [[highlight LineNr guifg=#a95e01]]
 vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]])
 vim.o.completeopt = "menuone,noselect"
 vim.o.guifont = "FiraCode Nerd Font:h10"
@@ -73,94 +71,11 @@ require("lualine").setup({
 
 -- -- enable inline errors
 -- vim.diagnostic.config({ virtual_text = true })
---
--- -- Bootstrap lazy.nvim
--- local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
--- if not (vim.uv or vim.loop).fs_stat(lazypath) then
--- 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
--- 	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
--- 	if vim.v.shell_error ~= 0 then
--- 		vim.api.nvim_echo({
--- 			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
--- 			{ out, "WarningMsg" },
--- 			{ "\nPress any key to exit..." },
--- 		}, true, {})
--- 		vim.fn.getchar()
--- 		os.exit(1)
--- 	end
--- end
--- vim.opt.rtp:prepend(lazypath)
---
---
--- -- Setup lazy.nvim
--- require("lazy").setup({
--- 	-- { "nvim-mini/mini.nvim", version = "*" },
 -- 	{ "m4xshen/autoclose.nvim" },
---   { 'felipevolpone/mono-theme' },
--- 	{ "morhetz/gruvbox" },
--- 	{
--- 		"folke/tokyonight.nvim",
--- 		lazy = false,
--- 		priority = 1000,
--- 		opts = {},
--- 	},
--- 	{
--- 		"cmoscofian/nibble-vim",
--- 	},
--- 	{
--- 		"nvim-neo-tree/neo-tree.nvim",
--- 		branch = "v3.x",
--- 		dependencies = {
--- 			"nvim-lua/plenary.nvim",
--- 			"MunifTanjim/nui.nvim",
--- 		},
--- 		lazy = false, -- neo-tree will lazily load itself
--- 	},
--- 	{
--- 		"nvim-telescope/telescope.nvim",
--- 		version = "*",
--- 		dependencies = {
--- 			"nvim-lua/plenary.nvim",
--- 		},
--- 	},
--- 	{
--- 		"lewis6991/gitsigns.nvim",
--- 		config = function()
--- 			require("gitsigns").setup()
--- 		end,
--- 	},
--- 	{
--- 		"folke/todo-comments.nvim",
--- 		event = "VimEnter",
--- 		dependencies = { "nvim-lua/plenary.nvim" },
--- 		opts = { signs = false },
--- 	},
--- 	{ -- Autoformat
--- 		"stevearc/conform.nvim",
--- 		event = { "BufWritePre" },
--- 		cmd = { "ConformInfo" },
--- 		keys = {
--- 			{
--- 				"<leader>fr",
--- 				function()
--- 					require("conform").format({ async = true, lsp_fallback = true })
--- 				end,
--- 				mode = "",
--- 				desc = "[F]ormat buffer",
--- 			},
--- 		},
--- 		opts = {
--- 			notify_on_error = false,
--- 			formatters_by_ft = {
--- 				lua = { "stylua" },
--- 				-- Conform can also run multiple formatters sequentially
--- 				-- python = { "isort", "black" },
--- 				--
--- 				-- You can use 'stop_after_first' to run the first available formatter from the list
--- 				-- javascript = { "prettierd", "prettier", stop_after_first = true },
--- 			},
--- 		},
--- 	},
+--  { 'felipevolpone/mono-theme' },
+-- 	{ "nvim-neo-tree/neo-tree.nvim", },
+-- 	{ "lewis6991/gitsigns.nvim",require("gitsigns").setup() },
+-- 	{ "folke/todo-comments.nvim", },
 -- 	{
 -- 		"saghen/blink.cmp",
 -- 		-- optional: provides snippets for the snippet source
@@ -515,86 +430,7 @@ require("lualine").setup({
 -- 		lazy = false,
 -- 		priority = 1000,
 -- 	},
--- 	{ "EdenEast/nightfox.nvim" },
--- 	{
--- 		"nvim-lualine/lualine.nvim",
--- 		config = function()
--- 			require("lualine").setup({
--- 				options = {
--- 					theme = "gruvbox",
--- 					component_separators = { left = "|", right = "|" },
--- 					section_separators = { left = "", right = "" },
--- 				},
--- 			})
--- 		end,
--- 	},
--- 	{ "pocco81/auto-save.nvim" },
--- 	-- { -- Highlight, edit, and navigate code
--- 	-- 	"nvim-treesitter/nvim-treesitter",
--- 	-- 	build = ":TSUpdate",
--- 	-- 	opts = {
--- 	-- 		ensure_installed = {
--- 	-- 			"bash",
--- 	-- 			"c",
--- 	-- 			"diff",
--- 	-- 			"html",
--- 	-- 			"lua",
--- 	-- 			"luadoc",
--- 	-- 			"markdown",
--- 	-- 			"markdown_inline",
--- 	-- 			"query",
--- 	-- 			"vim",
--- 	-- 			"vimdoc",
--- 	-- 			"javascript",
--- 	-- 			"typescript",
--- 	-- 			"go",
--- 	-- 			"svelte",
--- 	-- 			"css",
--- 	-- 		},
--- 	-- 		-- Autoinstall languages that are not installed
--- 	-- 		auto_install = true,
--- 	-- 		highlight = {
--- 	-- 			enable = true,
--- 	-- 			-- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
--- 	-- 			--  If you are experiencing weird indenting issues, add the language to
--- 	-- 			--  the list of additional_vim_regex_highlighting and disabled languages for indent.
--- 	-- 			additional_vim_regex_highlighting = { "ruby" },
--- 	-- 		},
--- 	-- 		indent = { enable = true, disable = { "ruby" } },
--- 	-- 	},
--- 	-- 	config = function(_, opts)
--- 	-- 		-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
--- 	--
--- 	-- 		---@diagnostic disable-next-line: missing-fields
--- 	-- 		require("nvim-treesitter.configs").setup(opts)
--- 	--
--- 	-- 		-- There are additional nvim-treesitter modules that you can use to interact
--- 	-- 		-- with nvim-treesitter. You should go explore a few and see what interests you:
--- 	-- 		--
--- 	-- 		--    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
--- 	-- 		--    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
--- 	-- 		--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
--- 	-- 	end,
--- 	-- },
--- 	{ "dhruvasagar/vim-table-mode" },
--- 	{
--- 		"numToStr/Comment.nvim",
--- 		opts = {
--- 			toggler = {
--- 				---Line-comment toggle keymap
--- 				line = "<leader>cc",
--- 				---Block-comment toggle keymap
--- 				block = "<leader>cc",
--- 			},
--- 		},
--- 	},
--- 	{
--- 		"binbandit/achroma.nvim",
--- 		lazy = false,
--- 		priority = 1000,
--- 	},
 -- })
---
 --
 -- require("autoclose").setup()
 --
@@ -616,70 +452,4 @@ require("lualine").setup({
 -- -- 		vim.keymap.set("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 -- -- 	end,
 -- -- })
---
--- require("neo-tree").setup({
--- 	window = {
--- 		mappings = {
--- 			["l"] = "open",
--- 			["<CR>"] = "open",
--- 			["h"] = function(state)
--- 				local node = state.tree:get_node()
---
--- 				if node.type == "directory" and node:is_expanded() then
--- 					-- close the folder
--- 					require("neo-tree.sources.filesystem.commands").close_node(state)
--- 				else
--- 					-- go to parent
--- 					require("neo-tree.sources.filesystem.commands").navigate_up(state)
--- 				end
--- 			end,
--- 		},
--- 	},
--- })
--- -- require("mini.files").setup()
--- vim.lsp.config("lua_ls", {
--- 	on_init = function(client)
--- 		if client.workspace_folders then
--- 			local path = client.workspace_folders[1].name
--- 			if
--- 				path ~= vim.fn.stdpath("config")
--- 				and (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc"))
--- 			then
--- 				return
--- 			end
--- 		end
---
--- 		client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
--- 			runtime = {
--- 				-- Tell the language server which version of Lua you're using (most
--- 				-- likely LuaJIT in the case of Neovim)
--- 				version = "LuaJIT",
--- 				-- Tell the language server how to find Lua modules same way as Neovim
--- 				-- (see `:h lua-module-load`)
--- 				path = {
--- 					"lua/?.lua",
--- 					"lua/?/init.lua",
--- 				},
--- 			},
--- 			-- Make the server aware of Neovim runtime files
--- 			workspace = {
--- 				checkThirdParty = false,
--- 				library = {
--- 					vim.env.VIMRUNTIME,
--- 					-- For LSP Settings Type Annotations: https://github.com/neovim/nvim-lspconfig#lsp-settings-type-annotations
--- 					vim.api.nvim_get_runtime_file("lua/lspconfig", false)[1],
--- 				},
--- 				-- Or pull in all of 'runtimepath'.
--- 				-- NOTE: this is a lot slower and will cause issues when working on
--- 				-- your own configuration.
--- 				-- See https://github.com/neovim/nvim-lspconfig/issues/3189
--- 				-- library = vim.api.nvim_get_runtime_file('', true),
--- 			},
--- 		})
--- 	end,
--- 	settings = {
--- 		Lua = {},
--- 	},
--- })
---
 --

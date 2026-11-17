@@ -144,7 +144,7 @@ mods = "Shift"
 history = 50000
 
 [terminal.shell]
-program = "/bin/zsh"
+program = "/bin/bash"
 
 [window]
 opacity = 0.8
